@@ -1,0 +1,207 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Página Sem Layout</title>
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true">
+</head>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela principal</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Trazer os links dos icones -->
+    <script src="https://kit.fontawesome.com/7c72460651.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main>
+        <header class="header">
+            <a href="#">
+                <img class="logo-header" src="./img/oficial-logo2.png" alt="">
+            </a>
+
+            <nav class="navbar">
+                <a href="/telaMapaPet/index.html" class="active">ENCONTRE SEU PET</a>
+                <a href="#">ADOTE</a>
+                <a href="#">CÃES E FILHOTES</a>
+                <a href="#">OUTROS TIPOS DE ANIMAIS</a>
+                <a href="#">SOBRE</a>
+            </nav>
+
+            <div class="hr-login"></div>
+
+            <a href="../index.html" class="btn" id="loginBtn">Faça Login</a>
+
+            <a href="/conta" class="btn" id="accountBtn" style="display: none;">Conta</a>
+        </header>
+
+
+
+
+        <div class="background-pet">
+            <p>Encontre um amigo.</p>
+        </div>
+
+        <div class="container">
+            <div class="background-cont__input">
+                <input class="inputs" type="text" placeholder="Input 1">
+                <div class="elemento-com-linha"></div>
+                <input class="inputs" type="text" placeholder="Input 2">
+                <button class="button">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+
+        <ul class="cards-options">
+            <li>
+                <i class="fa-solid fa-dog fa-3x"></i>
+                Cachorros
+            </li>
+            <li>
+                <i class="fa-solid fa-cat fa-3x"></i>
+                Gatos
+            </li>
+            <li>
+                <i class="fa-solid fa-horse fa-3x"></i>
+                Outros animais
+            </li>
+            <li>
+                <i class="fa-solid fa-house-flag fa-3x"></i>
+                Resgates e abrigos
+            </li>
+        </ul>
+
+        <section class="recommended-section">
+            <div class="recommended-card">
+                <h1>Pets próximos disponíveis para adoção </h1>
+                <i class="fa-solid fa-angle-right"></i>
+            </div>
+            <div class="container-grid-recommended">
+                <div class="grid-options">
+                    <div class="card card-1">
+                        <img class='img img-card1' src="./img/card1.jpg" alt="">
+                        <div class="legend-before">
+                            <div class="legend legend4">
+                                <h1>
+                                    ola
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-2">
+                        <img class='img img-card2' src="./img/card2.jpg" alt="">
+                        <div class="legend-before">
+                            <div class="legend legend4">
+                                <h1>
+                                    ola
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-3">
+                        <img class='img img-card3' src="./img/card3.jpg" alt="">
+                        <div class="legend-before">
+                            <div class="legend legend4">
+                                <h1>
+                                    ola
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-4">
+                        <div class="legend legend4">
+                            <i class="fa-solid fa-paw fa-4x" style="color: #ffffff;"></i>
+                            <p>Mais animais disponíveis</p>
+                        </div>
+                        <div class="view-more">
+                            <hr style="border: 1px solid rgb(255, 255, 255); width: 100%;">
+                            <p>ver mais</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="planning-adopt">
+            <div class="planning-adopt__text">
+                <h1>PLANEJANDO ADOTAR UM ANIMAL DE ESTIMAÇÃO?</h1>
+            </div>
+
+            <div class="planning-adopt__cards">
+                <a href="">
+                    <div class="planning-adopt__card-i card1">
+                        <i class="fa-solid fa-house-flag fa-4x"></i>
+                        <div class="planning-text">
+                            <h2>DICAS PARA NOVOS DONOS</h2>
+                            <p>Faça com que a transição para a adoção seja a mais tranquila possível.</p>
+                        </div>
+                        <div class="button-adopt">
+                            <div>
+                                <span>SABER MAIS</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="planning-adopt__card-i card2">
+                        <i class="fa-solid fa-dog fa-4x"></i>
+                        <div class="planning-text">
+                            <h2>QUANTOS ANOS TEM UM CÃO EM ANOS HUMANOS?</h2>
+                            <p>Qual é a idade de um cachorro em anos humanos?</p>
+                        </div>
+                        <div class="button-adopt">
+                            <div>
+                                <span>SABER MAIS</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="planning-adopt__card-i card3">
+                        <i class="fa-solid fa-comments fa-4x"></i>
+                        <div class="planning-text">
+                            <h2>ADOÇÃO DE ANIMAIS FAQ</h2>
+                            <p>Obtenha respostas para todas as perguntas que você não pensou sobre sua adoção.</p>
+                        </div>
+                        <div class="button-adopt">
+                            <div>
+                                <span>SABER MAIS</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <footer class="footer">
+        © 2025 Seu Nome. Todos os direitos reservados.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
