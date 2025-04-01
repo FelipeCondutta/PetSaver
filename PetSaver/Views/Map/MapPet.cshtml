@@ -1,0 +1,49 @@
+﻿@page
+@model PetSaver.Views.Map.IndexModel
+@{
+}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa com Google Maps</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Trazer os links dos icones -->
+    <script src="https://kit.fontawesome.com/7c72460651.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="active">ENCONTRE SEU PET</a>
+            <a href="#">ADOTE</a>
+            <a href="#">CÃES E FILHOTES</a>
+            <a href="#">OUTROS TIPOS DE ANIMAIS</a>
+            <a href="#">SOBRE</a>
+        </nav>
+    </header>
+
+    <div class="mapa" id="map"></div>
+
+    <div class="container-lateral-menu">
+        <div class="button-menu">
+            <button class="b-cont">
+                <i class="fa-solid fa-flag fa-2x" style="color: #ff0000;"></i>
+                <p>PERDI MEU PET</p>
+            </button>
+            <a href="../formPet/search/index.html" class="b-cont">
+                <i class="fa-solid fa-flag fa-2x" style="color: #26ff00;"></i>
+                <p>ENCONTREI UM PET</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Script do Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeShLfVqm2Y_LnFW8MKtzcoMRBbyEZuxQ&callback=initMap" async defer></script>
+    <!-- Script do mapa -->
+    <script src="/js/site.js"></script>
+
+</body>
+</html>

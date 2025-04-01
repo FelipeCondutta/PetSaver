@@ -5,16 +5,6 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Página Sem Layout</title>
-    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true">
-</head>
-
-</html>
 
 
 <!DOCTYPE html>
@@ -38,7 +28,7 @@
             </a>
 
             <nav class="navbar">
-                <a href="/telaMapaPet/index.html" class="active">ENCONTRE SEU PET</a>
+                <a href="@Url.Action("MapPet", "Map")" class="active">ENCONTRE SEU PET</a>
                 <a href="#">ADOTE</a>
                 <a href="#">CÃES E FILHOTES</a>
                 <a href="#">OUTROS TIPOS DE ANIMAIS</a>
@@ -47,7 +37,7 @@
 
             <div class="hr-login"></div>
 
-            <a href="../index.html" class="btn" id="loginBtn">Faça Login</a>
+            <a href="@Url.Action("LoginAndRegister", "Home")" class="btn" id="loginBtn">Faça Login</a>
 
             <a href="/conta" class="btn" id="accountBtn" style="display: none;">Conta</a>
         </header>
@@ -201,7 +191,7 @@
         © 2025 Seu Nome. Todos os direitos reservados.
     </footer>
 
-    <script src="script.js"></script>
+    <script src="~/js/site.js"></script>
 </body>
 
 </html>
