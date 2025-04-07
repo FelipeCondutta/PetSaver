@@ -1,0 +1,79 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Pet Encontrado";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontrei um pet</title>
+    <link rel="stylesheet" href="~/css/foundpet.css" asp-append-version="true">>>
+
+    <!-- Trazer os links dos icones -->
+    <script src="https://kit.fontawesome.com/7c72460651.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="header">
+        <a href="#">
+            <img class="logo-header" src="/TelaPrincipal/img/oficial-logo2.png" alt="">
+        </a>
+
+        <nav class="navbar">
+            <a href="/telaMapaPet/index.html" class="active">ENCONTRE SEU PET</a>
+            <a href="#">ADOTE</a>
+            <a href="#">CÃES E FILHOTES</a>
+            <a href="#">OUTROS TIPOS DE ANIMAIS</a>
+            <a href="#">SOBRE</a>
+        </nav>
+        <div class="hr-login"></div>
+        <a href="../telaLoginPetSearch/index.html" class="btn">Faça Login</a>
+    </header>
+
+    <div class="container">
+        <div class="container-form">
+            <h2>Nos conte mais sobre o Pet</h2>
+            <form action="">
+                <div>
+                    <p>Imagem do Pet encontrado</p>
+                    <label for="fileInput" class="custom-file-label">📂 Selecionar Arquivo</label>
+                    <input type="file" id="fileInput">
+
+                    <div class="idadeAproxim">
+                        <input type="number" min="0" placeholder="Idade aprox.">
+                        <select name="" id="">
+                            <option value="anos">Ano(s)</option>
+                            <option value="meses">Mês(es)</option>
+                        </select>
+                    </div>
+                    <p>Sexo</p>
+                    <div class="sexoPet">
+                        <select name="selectSexPet" id="">
+                            <option value="macho">Macho</option>
+                            <option value="fem">Fêmea</option>
+                            <option value="dontknow">Não sei</option>
+                        </select>
+                    </div>
+                    <p>Código do chip indentificador (caso houver) </p>
+                    <input class="ChipIdentifica" type="number" min="0" maxlength="99" name="" id="">
+                    <p>Descrição (nos conte mais sobre o Pet)</p>
+                    <textarea class="descPet" placeholder="Descreva seu pet" maxlength="400"></textarea>
+                    <div class="content-checkbox">
+                        <input type="checkbox">
+                        <label for="">Informar meu telefone de contato</label>
+                    </div>
+                    <div class="submitForm">
+                        <button class="button-submitForm">Próximo ></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>

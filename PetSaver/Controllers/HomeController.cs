@@ -8,11 +8,6 @@ namespace PetSaver.Controllers
         {
             return View(); // Retorna a View "Index.cshtml" dentro de Views/Home/
         }
-
-        public IActionResult LoginAndRegister()
-        {
-            return View();
-        }
     }
 
 

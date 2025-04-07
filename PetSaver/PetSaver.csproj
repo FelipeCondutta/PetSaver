@@ -16,13 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Views\Home\LoginAndRegister.cshtml">
+    <Content Update="Views\Account\LoginAndRegister.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Account\" />
   </ItemGroup>
 
 </Project>

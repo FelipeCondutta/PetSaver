@@ -8,5 +8,15 @@ namespace PetSaver.Controllers
         {
             return View();
         }
+
+        public IActionResult ReportLostPet()
+        {
+            return View();
+        }
+
+        public IActionResult ReportFoundPet()
+        {
+            return View();
+        }
     }
 }
