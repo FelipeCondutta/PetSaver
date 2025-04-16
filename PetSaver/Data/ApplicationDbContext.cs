@@ -1,13 +1,11 @@
-﻿using System;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using PetSaver.Models;
 
 namespace PetSaver.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
-        
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -16,4 +14,3 @@ namespace PetSaver.Data
         public DbSet<User> Users { get; set; } // Nome da tabela no banco
     }
 }
-

@@ -37,9 +37,17 @@
 
             <div class="hr-login"></div>
 
-            <a href="@Url.Action("LoginAndRegister", "Account")" class="btn" id="loginBtn">Faça Login</a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <!-- Botão para usuários logados -->
+                <a href="@Url.Action("LoginAndRegister", "Account")" class="btn" id="accountBtn">Sair</a>
+            }
+            else
+            {
+                <!-- Botão para usuários não logados -->
+                <a href="@Url.Action("LoginAndRegister", "Account")" class="btn" id="loginBtn">Faça Login</a>
+            }
 
-            <a href="/conta" class="btn" id="accountBtn" style="display: none;">Conta</a>
         </header>
 
 

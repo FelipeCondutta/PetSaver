@@ -12,14 +12,12 @@
     <title>Login-Cadastro</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/css/loginandregister.css" asp-append-version="true">
-
 </head>
 
 <body>
-
     <div class="container">
         <div class="form-box login">
-            <form action="">
+            <form asp-action="Login" method="post">
                 <h1>Login</h1>
                 <div class="input-box">
                     <input type="email" name="email" placeholder="Email" required>
@@ -33,7 +31,7 @@
                     <a href="#">Esqueceu sua senha?</a>
                 </div>
                 <button type="submit" class="btn">Login</button>
-                <p>Ou faça login com outra platarforma</p>
+                <p>Ou faça login com outra plataforma</p>
                 <div class="social-icons">
                     <a href="#"><i class='bx bxl-google'></i></a>
                     <a href="#"><i class='bx bxl-facebook'></i></a>
@@ -44,7 +42,7 @@
         </div>
 
         <div class="form-box register">
-            <form action="">
+            <form asp-action="Register" method="post">
                 <h1>Crie uma conta</h1>
                 <div class="input-box">
                     <input type="text" name="username" placeholder="Nome de usuário" required>
@@ -89,9 +87,8 @@
                 <button class="btn login-btn">Login</button>
             </div>
         </div>
-
     </div>
-    <script src="/js/site.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
 </body>
 
