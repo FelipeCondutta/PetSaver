@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    
+}
+
+body {
+    font-family: 'Poppins', 'sans-serif';
+    background-color: #f1f1f1 ;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    background: #7494ec;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 100;
+    font-family: 'Poppins', 'sans-serif';
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.logo-header {
+    width: 200px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.header .btn {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    margin: 0 10px;
+    transition: .3s;
+}
+
+.navbar a:hover {
+    color: #42c1e8;
+}
+
+.navbar a.active {
+    font-weight: 700;
+}
+
+.btn {
+    padding: 10px 30px;
+    background: #fff;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #7494ec;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.content-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.container-form {
+    margin: 0 15px;
+}
+.content-form {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    margin: 0 auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+}
+
+.content-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.edit-profile {
+    display: flex;
+    padding: 10px 20px; /* Ajuste o padding para ter um tamanho mais responsivo */
+    margin: 10px auto;
+    width: 100%; /* Faz o botão ocupar 100% da largura disponível */
+    max-width: 600px; /* Limita o tamanho máximo do botão */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    background-color: #7494ec;
+    color: #fff;
+    font-weight: 400px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', 'sans-serif';
+    cursor: pointer;
+}
+
+.content-link {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}

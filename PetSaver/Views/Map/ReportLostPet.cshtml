@@ -1,4 +1,6 @@
-﻿@{
+﻿@model PetSaver.Models.LostPet
+
+@{
     ViewData["Title"] = "Perdi meu Pet";
 }
 @{
@@ -19,7 +21,7 @@
 <body>
     <header class="header">
         <a href="#">
-            <img class="logo-header" src="/TelaPrincipal/img/oficial-logo2.png" alt="">
+            <img class="logo-header" src="~/img/oficial-logo2.png" alt="Logo">
         </a>
 
         <nav class="navbar">
@@ -36,48 +38,38 @@
     <div class="container">
         <div class="container-form">
             <h2>Nos conte mais sobre o Pet</h2>
-            <form action="">
+            <form asp-action="SaveLostPet" asp-controller="Map" method="post">
                 <div>
-                    <p>Imagem do seu Pet perdido</p>
-                    <label for="fileInput" class="custom-file-label">📂 Selecionar Arquivo</label>
-                    <input type="file" id="fileInput">
-                    <div class="nomePet">
-                        <p>Nome</p>
-                        <input type="text" placeholder="Insira o nome do Pet">
-                    </div>
-
                     <div class="idadeAproxim">
-                        <p>Idade</p>
-                        <input type="number" min="0" placeholder="Idade aprox.">
-                        <select name="" id="">
+                        <input type="number" asp-for="ApproximateAge" min="0" placeholder="Idade aprox." />
+                        <select asp-for="AgeUnit">
                             <option value="anos">Ano(s)</option>
                             <option value="meses">Mês(es)</option>
                         </select>
                     </div>
-
                     <p>Sexo</p>
                     <div class="sexoPet">
-                        <select name="selectSexPet" id="">
+                        <select asp-for="Gender">
                             <option value="macho">Macho</option>
                             <option value="fem">Fêmea</option>
-                            <option value="dontknow">Não sei</option>
                         </select>
                     </div>
-                    <p>Código do chip indentificador (caso houver) </p>
-                    <input class="ChipIdentifica" type="number" min="0" maxlength="99" name="" id="">
+                    <p>Código do chip indentificador (caso houver)</p>
+                    <input asp-for="ChipCode" class="ChipIdentifica" type="text" maxlength="50" />
                     <p>Descrição (nos conte mais sobre o Pet)</p>
-                    <textarea class="descPet" placeholder="Descreva seu pet" maxlength="400"></textarea>
+                    <textarea asp-for="Description" class="descPet" maxlength="400"></textarea>
                     <div class="content-checkbox">
-                        <input type="checkbox">
+                        <input asp-for="SharePhone" type="checkbox" />
                         <label for="">Informar meu telefone de contato</label>
                     </div>
                     <div class="submitForm">
-                        <button class="button-submitForm">Próximo ></button>
+                        <button type="submit" class="button-submitForm">Concluir</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+
 
 
 

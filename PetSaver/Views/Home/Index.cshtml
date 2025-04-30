@@ -39,8 +39,8 @@
 
             @if (User.Identity.IsAuthenticated)
             {
-                <!-- Botão para usuários logados -->
-                <a href="@Url.Action("LoginAndRegister", "Account")" class="btn" id="accountBtn">Sair</a>
+                <!-- Botão para redirecionar ao perfil -->
+                <a href="@Url.Action("Profile", "Account")" class="btn" id="accountBtn">Perfil</a>
             }
             else
             {

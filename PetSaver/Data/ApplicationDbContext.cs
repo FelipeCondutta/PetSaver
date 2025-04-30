@@ -11,6 +11,8 @@ namespace PetSaver.Data
         {
         }
 
-        public DbSet<User> Users { get; set; } // Nome da tabela no banco
+        public DbSet<User> Users { get; set; } 
+        public DbSet<FoundPet> FoundedPets { get; set; } 
+        public DbSet<LostPet> LostPets { get; set; }
     }
 }

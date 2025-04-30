@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
 using PetSaver.Models;
 using PetSaver.Services;
 using System.Threading.Tasks;
@@ -16,6 +17,11 @@ namespace PetSaver.Controllers
 
         [HttpGet]
         public IActionResult LoginAndRegister()
+        {
+            return View();
+        }
+
+        public IActionResult Profile()
         {
             return View();
         }
@@ -44,11 +50,26 @@ namespace PetSaver.Controllers
             return View("LoginAndRegister");
         }
 
+        public IActionResult EditAccount()
+        {
+            // Lógica para carregar os dados da conta para edição
+            return View();
+        }
+
+        public IActionResult ViewAccount()
+        {
+            // Lógica para carregar os dados da conta para visualização
+            return View();
+        }
+
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
-            await _authService.Logout(HttpContext);
-            return RedirectToAction("LoginAndRegister");
+            // Remove o cookie de autenticação
+            await HttpContext.SignOutAsync();
+
+            // Redireciona para a página de login
+            return RedirectToAction("Index", "Home");
         }
     }
 }

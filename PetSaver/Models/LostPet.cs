@@ -1,0 +1,32 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace PetSaver.Models
+{
+    [Table("LostPets")] // Nome da tabela no banco
+    public class LostPet
+    {
+        [Key]
+        public int Id { get; set; } // Chave primária
+
+        [Range(0, 100, ErrorMessage = "A idade aproximada deve estar entre 0 e 100.")]
+        public int? ApproximateAge { get; set; } // Idade aproximada
+
+        [Required(ErrorMessage = "A unidade de idade é obrigatória.")]
+        [StringLength(10, ErrorMessage = "A unidade de idade deve ter no máximo 10 caracteres.")]
+        public string AgeUnit { get; set; } // Unidade da idade (anos/meses)
+
+        [Required(ErrorMessage = "O sexo do pet é obrigatório.")]
+        [StringLength(10, ErrorMessage = "O sexo deve ter no máximo 10 caracteres.")]
+        public string Gender { get; set; } // Sexo 
+
+        [StringLength(50, ErrorMessage = "O código do chip deve ter no máximo 50 caracteres.")]
+        public string ChipCode { get; set; } // Código do chip identificador
+
+        [StringLength(400, ErrorMessage = "A descrição deve ter no máximo 400 caracteres.")]
+        public string Description { get; set; } // Descrição do pet
+
+        [Required(ErrorMessage = "É necessário informar se o telefone será compartilhado.")]
+        public bool SharePhone { get; set; } // Se o telefone será compartilhado
+    }
+}
