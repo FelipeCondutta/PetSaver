@@ -1,0 +1,177 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', 'sans-serif';
+}
+
+a {
+    text-decoration: dashed;
+    color: inherit;
+}
+
+body {
+    font-family: 'Poppins', 'sans-serif';
+    background-color: #f1f1f1;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    background: #7494ec;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 100;
+    font-family: 'Poppins', 'sans-serif';
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.logo-header {
+    width: 200px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.header .btn {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    margin: 0 10px;
+    transition: .3s;
+}
+
+    .navbar a:hover {
+        color: #42c1e8;
+    }
+
+    .navbar a.active {
+        font-weight: 700;
+    }
+
+.btn {
+    padding: 10px 30px;
+    background: #fff;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #7494ec;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    color: #4d4751;
+}
+
+.title-content {
+    font-size: 26px;
+    margin: 5px 0;
+    font-weight: 500;
+    color: #4d4751;
+}
+
+.button-share {
+    margin: 35px 0;
+}
+
+/* Estilização do botão */
+.button {
+    padding: 12px 24px;
+    background-color: #fff;
+    border-radius: 30px;
+    border: 2px solid #7494ec;
+    color: #7494ec;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(106, 13, 173, 0.2);
+    position: relative;
+}
+
+.icon-share {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.button:hover {
+    background-color: #7494ec;
+    color: #ffffff;
+    inset: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.icon-first {
+    color: #7494ec;
+    position: absolute;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+/* Ícone que aparece no hover (branco) */
+.icon-second {
+    color: #ffffff;
+    position: absolute;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+/* Troca de ícones no hover */
+.button:hover .icon-first {
+    opacity: 0;
+}
+
+.button:hover .icon-second {
+    opacity: 1;
+}
+
+.class-content {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 2;
+    margin: 30px 0;
+}
+
+    .class-content > ul {
+        margin: 0 20px;
+    }
+
+.title-section {
+    font-weight: 500;
+    font-size: 25px;
+    margin: 10px 0;
+}
+
+.img-pet > img {
+    width: 70%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 30px 0;
+}
+
+.fa-solid fa-share {
+    margin: 0 20px;
+}
+
+.title-table {
+    font-weight: 500;
+    margin: 40px 0;
+}
