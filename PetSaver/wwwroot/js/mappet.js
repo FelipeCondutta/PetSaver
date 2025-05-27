@@ -1,40 +1,45 @@
 function initMap() {
     // Verifica se o navegador suporta geolocalização
     if (navigator.geolocation) {
-        // Solicita a localização do usuário com alta precisão
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                // Define a localização do usuário como o centro do mapa
                 const userLocation = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
 
-                // Estilo do mapa para remover pontos de interesse (POIs)
                 const estiloMapa = [
                     {
                         featureType: "poi",
                         elementType: "all",
-                        stylers: [{ visibility: "off" }] // Remove todos os locais (lojas, parques, hospitais, etc.)
+                        stylers: [{ visibility: "off" }]
                     }
                 ];
 
-                // Cria o mapa com a localização do usuário como centro
                 const map = new google.maps.Map(document.getElementById("map"), {
                     center: userLocation,
-                    zoom: 15, // Aumenta o zoom para uma visão mais próxima
-                    styles: estiloMapa, // Aplica o estilo personalizado
-                    streetViewControl: false, // Remove o Pegman (Street View)
-                    mapTypeControl: false, // Desativa controle de tipos de mapas
+                    zoom: 15,
+                    styles: estiloMapa,
+                    streetViewControl: false,
+                    mapTypeControl: false,
                 });
 
                 // Adiciona um marcador na localização do usuário
-                addMarker(userLocation, map);
+                addMarker(userLocation, map, "Você está aqui");
+
+                // Busca os pets salvos no banco e os exibe no mapa
+                fetch('/Map/GetSavedPets')
+                    .then(response => response.json())
+                    .then(pets => {
+                        pets.forEach(pet => {
+                            const petLocation = { lat: pet.Latitude, lng: pet.Longitude };
+                            addMarker(petLocation, map, pet.Description || "Pet encontrado");
+                        });
+                    })
+                    .catch(error => console.error("Erro ao buscar os pets:", error));
             },
             (error) => {
-                // Caso ocorra um erro ao obter a localização, exibe uma mensagem de erro
                 showError(error);
-                // Define uma localização padrão (ex: São Paulo) como fallback
                 const defaultLocation = { lat: -23.550520, lng: -46.633308 };
                 const map = new google.maps.Map(document.getElementById("map"), {
                     center: defaultLocation,
@@ -45,15 +50,13 @@ function initMap() {
                 });
             },
             {
-                enableHighAccuracy: true, // Solicita alta precisão
-                timeout: 5000, // Tempo máximo de espera para obter a localização
-                maximumAge: 0 // Não usa cache de localização
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 0
             }
         );
     } else {
-        // Caso o navegador não suporte geolocalização, exibe uma mensagem de erro
         alert("Geolocation is not supported by this browser.");
-        // Define uma localização padrão (ex: São Paulo) como fallback
         const defaultLocation = { lat: -23.550520, lng: -46.633308 };
         const map = new google.maps.Map(document.getElementById("map"), {
             center: defaultLocation,
@@ -65,11 +68,11 @@ function initMap() {
     }
 
     // Função para adicionar um marcador no mapa
-    function addMarker(location, map) {
+    function addMarker(location, map, title) {
         new google.maps.Marker({
             position: location,
             map: map,
-            title: "Localização Atual"
+            title: title
         });
     }
 

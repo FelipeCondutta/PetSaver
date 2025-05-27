@@ -17,7 +17,7 @@
 
 <body>
     <header class="header">
-        <a href="#">
+        <a href="@Url.Action("Index", "Home")">
             <img class="logo-header" src="~/img/oficial-logo2.png" alt="Logo">
         </a>
 
@@ -35,7 +35,7 @@
     <div class="container">
         <div class="container-form">
             <h2>Nos conte mais sobre o Pet</h2>
-            <form asp-action="SaveFoundPet" asp-controller="Map" method="post">
+            <form asp-action="MapFoundPet" asp-controller="Map" method="post" enctype="multipart/form-data">
                 <div>
                     <div class="idadeAproxim">
                         <input type="number" asp-for="ApproximateAge" min="0" placeholder="Idade aprox." />
@@ -60,13 +60,33 @@
                         <input asp-for="SharePhone" type="checkbox" />
                         <label for="">Informar meu telefone de contato</label>
                     </div>
+                    <p>Imagem do Pet encontrado</p>
+                    <label for="ImageFile" id="fileLabel" class="custom-file-label">📂 Selecionar Arquivo</label>
+                    <input asp-for="ImageFile" type="file" id="ImageFile" class="custom-file-input" accept="image/*" style="display: none;" />
                     <div class="submitForm">
-                        <button type="submit" class="button-submitForm" formaction="/Map/MapFoundPet">Próximo ></button>
-
+                        <button type="submit" class="button-submitForm">Próximo ></button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+    <script>
+        document.getElementById("ImageFile").addEventListener("change", function () {
+            const fileInput = this;
+            const fileLabel = document.getElementById("fileLabel");
+
+            if (fileInput.files && fileInput.files.length > 0) {
+                // Obtém o nome do arquivo selecionado
+                const fileName = fileInput.files[0].name;
+
+                // Atualiza o texto do botão para mostrar o nome do arquivo
+                fileLabel.textContent = `📂 Arquivo Selecionado: ${fileName}`;
+            } else {
+                // Caso o usuário cancele a seleção, restaura o texto original
+                fileLabel.textContent = "📂 Selecionar Arquivo";
+            }
+        });
+
+    </script>
 </body>
 </html>

@@ -192,3 +192,25 @@ input[type="number"]::-webkit-outer-spin-button {
 p {
     margin: 10px 0;
 }
+
+.custom-file-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px; /* Limita o tamanho do texto */
+}
+
+    .custom-file-label:hover {
+        background-color: #0056b3;
+    }
+

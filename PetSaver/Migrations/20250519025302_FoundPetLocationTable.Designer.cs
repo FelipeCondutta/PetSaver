@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetSaver.Data;
 
@@ -11,9 +12,11 @@ using PetSaver.Data;
 namespace PetSaver.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250519025302_FoundPetLocationTable")]
+    partial class FoundPetLocationTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -237,6 +240,7 @@ namespace PetSaver.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ChipCode")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -250,26 +254,12 @@ namespace PetSaver.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Latitude")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Longitude")
-                        .HasColumnType("float");
-
                     b.Property<bool>("SharePhone")
                         .HasColumnType("bit");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
-
-                    b.ToTable("FoundedPets", (string)null);
+                    b.ToTable("FoundedPets");
                 });
 
             modelBuilder.Entity("PetSaver.Models.LostPet", b =>
@@ -308,7 +298,7 @@ namespace PetSaver.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LostPets", (string)null);
+                    b.ToTable("LostPets");
                 });
 
             modelBuilder.Entity("PetSaver.Models.User", b =>
@@ -336,7 +326,7 @@ namespace PetSaver.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -388,22 +378,6 @@ namespace PetSaver.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("PetSaver.Models.FoundPet", b =>
-                {
-                    b.HasOne("PetSaver.Models.User", "User")
-                        .WithMany("FoundPets")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("PetSaver.Models.User", b =>
-                {
-                    b.Navigation("FoundPets");
                 });
 #pragma warning restore 612, 618
         }

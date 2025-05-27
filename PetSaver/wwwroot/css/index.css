@@ -400,3 +400,40 @@ input:nth-child(2) {
 }
 
 
+.confirmation-message {
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+    .confirmation-message h1 {
+        font-size: 24px;
+        color: #333;
+        margin: 20px 0;
+    }
+
+    .confirmation-message p {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    .confirmation-message .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+
+        .confirmation-message .button:hover {
+            background-color: #45a049;
+        }

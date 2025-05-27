@@ -15,6 +15,10 @@
 
 <body>
     <header class="header">
+        <a href="@Url.Action("Index", "Home")">
+            <img class="logo-header" src="/img/oficial-logo2.png" alt="Logo">
+        </a>
+
         <nav class="navbar">
             <a href="@Url.Action("MapPet", "Map")" class="active">ENCONTRE SEU PET</a>
             <a href="#">ADOTE</a>
@@ -27,6 +31,7 @@
     <div id="map"></div>
 
     <div class="container-lateral-menu">
+
         <div class="button-menu">
             <a href="@Url.Action("ReportLostPet", "Map")" class="b-cont">
                 <i class="fa-solid fa-flag fa-2x" style="color: #ff0000;"></i>

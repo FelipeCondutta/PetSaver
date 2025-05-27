@@ -1,4 +1,6 @@
-﻿@{
+﻿@using System.Security.Claims
+@model PetSaver.Models.FoundPet
+@{
     ViewData["Title"] = "Mapa do pet encontrado";
 }
 @{
@@ -15,7 +17,7 @@
 </head>
 <body>
     <header class="header">
-        <a href="#">
+        <a href="@Url.Action("Index", "Home")">
             <img class="logo-header" src="~/img/oficial-logo2.png" alt="Logo">
         </a>
 
@@ -32,12 +34,26 @@
 
     <div class="titleForm">
         <h2>Insira o local em que o Pet foi localizado:</h2>
+        <p>Descrição do pet: @Model.Description</p>
     </div>
     <div class="container">
         <div class="mapa" id="map"></div>
     </div>
-
     <form asp-action="SaveFoundPet" asp-controller="Map" method="post">
+        <!-- Campos ocultos para preservar os dados do modelo -->
+        <input type="hidden" asp-for="UserId" value="@User.FindFirstValue(ClaimTypes.NameIdentifier)" />
+        <input type="hidden" asp-for="Description" />
+        <input type="hidden" asp-for="ApproximateAge" />
+        <input type="hidden" asp-for="AgeUnit" />
+        <input type="hidden" asp-for="Gender" />
+        <input type="hidden" asp-for="ChipCode" />
+        <input type="hidden" asp-for="SharePhone" />
+        <input type="hidden" asp-for="ImageUrl" />
+
+        <!-- Campos para latitude e longitude -->
+        <input type="hidden" id="latitude" name="Latitude" />
+        <input type="hidden" id="longitude" name="Longitude" />
+
         <div class="button-MapFound">
             <button type="submit" class="button-conclude">Concluir</button>
         </div>

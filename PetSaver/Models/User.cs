@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetSaver.Models
@@ -21,5 +22,8 @@ namespace PetSaver.Models
         [Required]
         [MaxLength(255)]
         public string Password { get; set; }
+
+        // Relacionamento com FoundPet
+        public ICollection<FoundPet> FoundPets { get; set; } = new List<FoundPet>();
     }
 }

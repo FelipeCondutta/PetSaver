@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetSaver.Data;
 
@@ -11,9 +12,11 @@ using PetSaver.Data;
 namespace PetSaver.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250527022917_imagefileinfoundpettable")]
+    partial class imagefileinfoundpettable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -269,7 +272,7 @@ namespace PetSaver.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("FoundedPets", (string)null);
+                    b.ToTable("FoundedPets");
                 });
 
             modelBuilder.Entity("PetSaver.Models.LostPet", b =>
@@ -308,7 +311,7 @@ namespace PetSaver.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LostPets", (string)null);
+                    b.ToTable("LostPets");
                 });
 
             modelBuilder.Entity("PetSaver.Models.User", b =>
@@ -336,7 +339,7 @@ namespace PetSaver.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -1,0 +1,121 @@
+﻿@{
+    ViewData["Title"] = "Confirmação";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação</title>
+    <link rel="stylesheet" href="/css/index.css" asp-append-version="true">
+    <script src="https://kit.fontawesome.com/7c72460651.js" crossorigin="anonymous"></script>
+    <style>
+        /* Estilos adicionais para centralizar o conteúdo e ajustar o layout */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .background-pet {
+            margin-bottom: 20px;
+        }
+
+        .confirmation-message {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+            .confirmation-message h1 {
+                font-size: 24px;
+                color: #333;
+                margin: 20px 0;
+            }
+
+            .confirmation-message p {
+                font-size: 16px;
+                color: #666;
+                margin-bottom: 20px;
+            }
+
+            .confirmation-message .button {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #7494ec;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 5px;
+                font-size: 16px;
+                transition: background-color 0.3s;
+            }
+
+                .confirmation-message .button:hover {
+                    background-color: #5a78c9; /* Um tom mais escuro para o hover */
+                }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #f1f1f1;
+            width: 100%;
+        }
+
+        .confirmation-message .button i {
+            color: #fff; /* Define a cor da seta como branca */
+            margin-right: 5px; /* Adiciona um pequeno espaçamento entre a seta e o texto */
+        }
+
+        .confirmation-message .button:hover i {
+            color: #e0e0e0; /* Altera a cor da seta no hover para um tom mais claro */
+        }
+
+    </style>
+</head>
+
+<body>
+    <main>
+        <header class="header">
+            <a href="@Url.Action("Index", "Home")">
+                <img class="logo-header" src="/img/oficial-logo2.png" alt="Logo PetSaver">
+
+            </a>
+        </header>
+
+        <div class="background-pet">
+            <p>Registro concluído com sucesso!</p>
+        </div>
+
+        <div class="confirmation-message">
+            <i class="fa-solid fa-circle-check fa-4x" style="color: #4CAF50;"></i>
+            <h1>O pet que você encontrou foi registrado com sucesso!</h1>
+            <p>Agora ele está visível para outros usuários que podem ajudar a encontrá-lo.</p>
+            <a href="@Url.Action("Index", "Home")" class="button">
+                <i class="fa-solid fa-arrow-left"></i> Voltar para a página inicial
+            </a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        © 2025 PetSaver. Todos os direitos reservados.
+    </footer>
+</body>
+
+</html>
