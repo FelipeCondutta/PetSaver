@@ -18,6 +18,20 @@ body {
     background-color: #ededed ;
 }
 
+@media (min-width: 901px) {
+    .hamburguer {
+        display: none;
+    }
+
+    .mobile-controls .btn {
+        display: inline-block;
+    }
+
+    #xsIcon {
+        display: none;
+    }
+}
+
 .header {
     display: flex;
     width: 100%;

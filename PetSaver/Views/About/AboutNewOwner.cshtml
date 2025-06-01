@@ -29,11 +29,31 @@
                 <a href="#">SOBRE</a>
             </nav>
 
-            <div class="hr-login"></div>
-
-            <a href="../index.html" class="btn" id="loginBtn">Faça Login</a>
-
-            <a href="/conta" class="btn" id="accountBtn" style="display: none;">Conta</a>
+            <div class="mobile-controls">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <!-- Botão para redirecionar ao perfil -->
+                    <a href="@Url.Action("Profile", "Account")" class="btn" id="accountBtn">
+                        <span class="textBtn">Perfil</span>
+                        <span>
+                            <i class="fa-solid fa-user" id="iconNormal"></i>
+                            <i class="fa-solid fa-user fa-xs" id="xsIcon"></i>
+                        </span>
+                    </a>
+                }
+                else
+                {
+                    <!-- Botão para usuários não logados -->
+                    <a href="@Url.Action("LoginAndRegister", "Account")" class="btn" id="loginBtn">
+                        <span class="textBtn">Faça Login</span>
+                        <span>
+                            <i class="fa-solid fa-user" id="iconNormal"></i>
+                            <i class="fa-solid fa-user fa-xs" id="xsIcon"></i>
+                        </span>
+                    </a>
+                }
+                <button class="hamburguer"></button>
+            </div>
         </header>
 
         <div class="container">

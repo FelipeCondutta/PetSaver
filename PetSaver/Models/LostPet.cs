@@ -21,12 +21,28 @@ namespace PetSaver.Models
         public string Gender { get; set; } // Sexo 
 
         [StringLength(50, ErrorMessage = "O código do chip deve ter no máximo 50 caracteres.")]
-        public string ChipCode { get; set; } // Código do chip identificador
+        public string? ChipCode { get; set; } // Código do chip identificador
 
         [StringLength(400, ErrorMessage = "A descrição deve ter no máximo 400 caracteres.")]
         public string Description { get; set; } // Descrição do pet
 
         [Required(ErrorMessage = "É necessário informar se o telefone será compartilhado.")]
         public bool SharePhone { get; set; } // Se o telefone será compartilhado
+
+        [Required(ErrorMessage = "O telefone é obrigatório.")]
+        public string PhoneNumber { get; set; }
+
+        public double Latitude { get; set; }
+
+        public double Longitude { get; set; }
+
+        public string? ImageUrl { get; set; } // Caminho da imagem no wwwroot
+        [NotMapped]
+        public IFormFile? ImageFile { get; set; } // Para o upload temporário
+
+        [ForeignKey("User")]
+        public int UserId { get; set; }
+
+        public User? User { get; set; }
     }
 }

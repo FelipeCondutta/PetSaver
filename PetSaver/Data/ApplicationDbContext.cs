@@ -14,5 +14,7 @@ namespace PetSaver.Data
         public DbSet<User> Users { get; set; } 
         public DbSet<FoundPet> FoundedPets { get; set; } 
         public DbSet<LostPet> LostPets { get; set; }
+        public DbSet<Pets> Pets { get; set; }
+        public DbSet<AdoptionRequest> AdoptionRequests { get; set; }
     }
 }

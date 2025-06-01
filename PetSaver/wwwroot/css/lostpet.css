@@ -28,6 +28,20 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
 }
 
+@media (min-width: 901px) {
+    .hamburguer {
+        display: none;
+    }
+
+    .mobile-controls .btn {
+        display: inline-block;
+    }
+
+    #xsIcon {
+        display: none;
+    }
+}
+
 .logo-header {
     width: 200px;
     height: 50px;

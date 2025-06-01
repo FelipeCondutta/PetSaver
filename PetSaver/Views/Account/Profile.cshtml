@@ -4,22 +4,26 @@
     ViewData["Title"] = "Perfil";
 }
 
-<link rel="stylesheet" href="~/css/profile.css">
+<link rel="stylesheet" href="/css/profile.css" asp-append-version="true">
 
 <main>
     <header class="header">
-        <a href="@Url.Action("Index", "Home")">
-            <img class="logo-header" src="~/img/oficial-logo2.png" alt="Logo">
-        </a>
-
-        <nav class="navbar">
-            <a href="@Url.Action("MapPet", "Map")" class="active">ENCONTRE SEU PET</a>
-            <a href="#">ADOTE</a>
-            <a href="#">CÃES E FILHOTES</a>
-            <a href="#">OUTROS TIPOS DE ANIMAIS</a>
-            <a href="#">SOBRE</a>
-        </nav>
+        <div class="header-content">
+            <a href="@Url.Action("Index", "Home")">
+                <img class="logo-header" src="~/img/oficial-logo2.png" alt="Logo">
+            </a>
+            <nav class="navbar">
+                <a href="@Url.Action("MapPet", "Map")" class="active">ENCONTRE SEU PET</a>
+                <a href="@Url.Action("Adoption", "PetAdoption")" class="active">ADOTE</a>
+                <a href="@Url.Action("Adoption", "PetAdoption", new { tipo = "Cachorro", idade = 3 })">CÃES E FILHOTES</a>
+                <a href="@Url.Action("Adoption", "PetAdoption", new { tipo = "Outros" })">
+                    OUTROS TIPOS DE ANIMAIS
+                </a>
+                <a href="@Url.Action("About", "About")" class="active">SOBRE</a>
+            </nav>
+        </div>
     </header>
+
 
     <div class="container-form">
         <div class="content-title">
@@ -32,12 +36,14 @@
                 <p>E-mail: @User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value</p>
             </div>
 
-            <button class="edit-profile">
-                Editar
-            </button>
+            <a href="@Url.Action("EditProfile", "Account")" class="edit-profile">Editar</a>
+            <a href="@Url.Action("ChangePassword", "Account")" class="edit-profile">Alterar Senha</a>
 
             <div class="content-link">
-                <a href="#" class="edit-profile">Meus casos</a>
+                <a href="@Url.Action("MyAdoptionCases", "PetAdoption")" class="edit-profile">Meus casos de adoção</a>
+            </div>
+            <div class="content-link">
+                <a href="@Url.Action("UserPetCases", "Map")" class="edit-profile">Meus casos de pets perdidos/encontrados</a>
             </div>
 
 

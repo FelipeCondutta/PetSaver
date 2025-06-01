@@ -11,6 +11,20 @@
     padding: 20px;
 }
 
+@media (min-width: 901px) {
+    .hamburguer {
+        display: none;
+    }
+
+    .mobile-controls .btn {
+        display: inline-block;
+    }
+
+    #xsIcon {
+        display: none;
+    }
+}
+
 body {
     font-family: 'Poppins', 'sans-serif';
     background-color: #f1f1f1;

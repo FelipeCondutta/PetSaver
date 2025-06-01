@@ -1,3 +1,7 @@
+// Adicione a constante aqui, no início do arquivo
+const DEFAULT_LOCATION = { lat: -23.550520, lng: -46.633308 };
+
+// Função initMap
 function initMap() {
     // Verifica se o navegador suporta geolocalização
     if (navigator.geolocation) {
@@ -29,20 +33,35 @@ function initMap() {
 
                 // Busca os pets salvos no banco e os exibe no mapa
                 fetch('/Map/GetSavedPets')
-                    .then(response => response.json())
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Erro ao buscar os pets: " + response.statusText);
+                        }
+                        return response.json();
+                    })
                     .then(pets => {
                         pets.forEach(pet => {
-                            const petLocation = { lat: pet.Latitude, lng: pet.Longitude };
-                            addMarker(petLocation, map, pet.Description || "Pet encontrado");
+                            if (pet.latitude && pet.longitude) {
+                                const petLocation = { lat: pet.latitude, lng: pet.longitude };
+                                const infoContent = `
+                                    <div>
+                                        <h3>${pet.description || "Pet encontrado"}</h3>
+                                        <img src="${pet.imageUrl}" alt="Imagem do Pet" style="width:100px;height:100px;" />
+                                    </div>
+                                `;
+                                addMarkerWithInfo(petLocation, map, pet.description || "Pet encontrado", infoContent);
+                            } else {
+                                console.warn("Pet sem coordenadas: ", pet);
+                            }
                         });
                     })
                     .catch(error => console.error("Erro ao buscar os pets:", error));
             },
             (error) => {
                 showError(error);
-                const defaultLocation = { lat: -23.550520, lng: -46.633308 };
+                // Use a constante DEFAULT_LOCATION como fallback
                 const map = new google.maps.Map(document.getElementById("map"), {
-                    center: defaultLocation,
+                    center: DEFAULT_LOCATION,
                     zoom: 12,
                     styles: estiloMapa,
                     streetViewControl: false,
@@ -57,43 +76,13 @@ function initMap() {
         );
     } else {
         alert("Geolocation is not supported by this browser.");
-        const defaultLocation = { lat: -23.550520, lng: -46.633308 };
+        // Use a constante DEFAULT_LOCATION como fallback
         const map = new google.maps.Map(document.getElementById("map"), {
-            center: defaultLocation,
+            center: DEFAULT_LOCATION,
             zoom: 12,
             styles: estiloMapa,
             streetViewControl: false,
             mapTypeControl: false,
         });
     }
-
-    // Função para adicionar um marcador no mapa
-    function addMarker(location, map, title) {
-        new google.maps.Marker({
-            position: location,
-            map: map,
-            title: title
-        });
-    }
-
-    // Função para tratar erros de geolocalização
-    function showError(error) {
-        switch (error.code) {
-            case error.PERMISSION_DENIED:
-                alert("Usuário negou a solicitação de geolocalização.");
-                break;
-            case error.POSITION_UNAVAILABLE:
-                alert("Informações de localização indisponíveis.");
-                break;
-            case error.TIMEOUT:
-                alert("A solicitação de localização expirou.");
-                break;
-            case error.UNKNOWN_ERROR:
-                alert("Ocorreu um erro desconhecido.");
-                break;
-        }
-    }
 }
-
-// Certifique-se de que a função initMap está disponível globalmente
-window.initMap = initMap;

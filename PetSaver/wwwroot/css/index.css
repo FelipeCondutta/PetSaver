@@ -437,3 +437,42 @@ input:nth-child(2) {
         .confirmation-message .button:hover {
             background-color: #45a049;
         }
+@media (min-width: 901px) {
+    .hamburguer {
+        display: none;
+    }
+
+    .mobile-controls .btn {
+        display: inline-block;
+    }
+
+    #xsIcon {
+        display: none;
+    }
+}
+
+.pagina-confirmacao .header {
+    width: 100%;
+    background-color: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    text-align: center;
+}
+
+.pagina-confirmacao main {
+    margin-top: 70px; /* ajuste conforme a altura do header */
+}
+
+.cards-options li a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    .cards-options li a:visited {
+        color: inherit;
+    }

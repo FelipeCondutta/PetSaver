@@ -8,23 +8,32 @@
 }
 
 .header {
-    width: 100%;
-    height: 78px;
-    padding: 30px;
-    background: #7494ec;
     display: flex;
-    justify-content: center;
     align-items: center;
-    z-index: 100;
-    font-family: inherit;
+    justify-content: space-between;
+    width: 100%;
+    background: #7494ec;
+    padding: 20px 40px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+    font-family: 'Poppins', 'sans-serif';
 }
 
 .logo-header {
     width: 200px;
     height: 50px;
     object-fit: cover;
+    margin-left: 0;
 }
+
+.navbar {
+    display: flex;
+    gap: 24px;
+}
+
+.header-right {
+    width: 200px; /* igual à largura da logo para centralizar visualmente */
+}
+
 
 .navbar a {
     font-size: 18px;
@@ -60,6 +69,20 @@
     max-width: 90%;
     max-height: 90%;
     z-index: 1;
+}
+
+@media (min-width: 901px) {
+    .hamburguer {
+        display: none;
+    }
+
+    .mobile-controls .btn {
+        display: inline-block;
+    }
+
+    #xsIcon {
+        display: none;
+    }
 }
 
 .button-menu {

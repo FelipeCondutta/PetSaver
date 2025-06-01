@@ -23,13 +23,38 @@
 
         <nav class="navbar">
             <a href="@Url.Action("MapPet", "Map")" class="active">ENCONTRE SEU PET</a>
-            <a href="#">ADOTE</a>
-            <a href="#">CÃES E FILHOTES</a>
-            <a href="#">OUTROS TIPOS DE ANIMAIS</a>
-            <a href="#">SOBRE</a>
+            <a href="@Url.Action("Adoption", "PetAdoption")" class="active">ADOTE</a>
+            <a href="@Url.Action("Adoption", "PetAdoption", new { tipo = "Cachorro", idade = 3 })">CÃES E FILHOTES</a>
+            <a href="@Url.Action("Adoption", "PetAdoption", new { tipo = "Outros" })">
+                OUTROS TIPOS DE ANIMAIS
+            </a>
+            <a href="@Url.Action("About", "About")" class="active">SOBRE</a>
         </nav>
-        <div class="hr-login"></div>
-        <a href="../telaLoginPetSearch/index.html" class="btn">Faça Login</a>
+        <div class="mobile-controls">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <!-- Botão para redirecionar ao perfil -->
+                <a href="@Url.Action("Profile", "Account")" class="btn" id="accountBtn">
+                    <span class="textBtn">Perfil</span>
+                    <span>
+                        <i class="fa-solid fa-user" id="iconNormal"></i>
+                        <i class="fa-solid fa-user fa-xs" id="xsIcon"></i>
+                    </span>
+                </a>
+            }
+            else
+            {
+                <!-- Botão para usuários não logados -->
+                <a href="@Url.Action("LoginAndRegister", "Account")" class="btn" id="loginBtn">
+                    <span class="textBtn">Faça Login</span>
+                    <span>
+                        <i class="fa-solid fa-user" id="iconNormal"></i>
+                        <i class="fa-solid fa-user fa-xs" id="xsIcon"></i>
+                    </span>
+                </a>
+            }
+            <button class="hamburguer"></button>
+        </div>
     </header>
 
     <div class="titleForm">
@@ -49,6 +74,7 @@
         <input type="hidden" asp-for="ChipCode" />
         <input type="hidden" asp-for="SharePhone" />
         <input type="hidden" asp-for="ImageUrl" />
+        <input type="hidden" asp-for="PhoneNumber" />
 
         <!-- Campos para latitude e longitude -->
         <input type="hidden" id="latitude" name="Latitude" />

@@ -1,0 +1,91 @@
+﻿@using System.Security.Claims
+@model PetSaver.Models.LostPet
+@{
+    ViewData["Title"] = "Mapa do pet encontrado";
+}
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/css/foundmap.css" asp-append-version="true">
+</head>
+<body>
+    <header class="header">
+        <a href="@Url.Action("Index", "Home")">
+            <img class="logo-header" src="~/img/oficial-logo2.png" alt="Logo">
+        </a>
+
+        <nav class="navbar">
+            <a href="@Url.Action("MapPet", "Map")" class="active">ENCONTRE SEU PET</a>
+            <a href="@Url.Action("Adoption", "PetAdoption")" class="active">ADOTE</a>
+            <a href="@Url.Action("Adoption", "PetAdoption", new { tipo = "Cachorro", idade = 3 })">CÃES E FILHOTES</a>
+            <a href="@Url.Action("Adoption", "PetAdoption", new { tipo = "Outros" })">
+                OUTROS TIPOS DE ANIMAIS
+            </a>
+            <a href="@Url.Action("About", "About")" class="active">SOBRE</a>
+        </nav>
+        <div class="mobile-controls">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <!-- Botão para redirecionar ao perfil -->
+                <a href="@Url.Action("Profile", "Account")" class="btn" id="accountBtn">
+                    <span class="textBtn">Perfil</span>
+                    <span>
+                        <i class="fa-solid fa-user" id="iconNormal"></i>
+                        <i class="fa-solid fa-user fa-xs" id="xsIcon"></i>
+                    </span>
+                </a>
+            }
+            else
+            {
+                <!-- Botão para usuários não logados -->
+                <a href="@Url.Action("LoginAndRegister", "Account")" class="btn" id="loginBtn">
+                    <span class="textBtn">Faça Login</span>
+                    <span>
+                        <i class="fa-solid fa-user" id="iconNormal"></i>
+                        <i class="fa-solid fa-user fa-xs" id="xsIcon"></i>
+                    </span>
+                </a>
+            }
+            <button class="hamburguer"></button>
+        </div>
+    </header>
+
+    <div class="titleForm">
+        <h2>Insira o local em que o Pet foi visto pela última vez:</h2>
+    </div>
+    <div class="container">
+        <div class="mapa" id="map"></div>
+    </div>
+    <form asp-action="SaveLostPet" asp-controller="Map" method="post">
+        <input type="hidden" asp-for="UserId" value="@User.FindFirstValue(ClaimTypes.NameIdentifier)" />
+        <input type="hidden" asp-for="Description" />
+        <input type="hidden" asp-for="ApproximateAge" />
+        <input type="hidden" asp-for="AgeUnit" />
+        <input type="hidden" asp-for="Gender" />
+        <input type="hidden" asp-for="ChipCode" />
+        <input type="hidden" asp-for="SharePhone" />
+        <input type="hidden" asp-for="ImageUrl" />
+        <input type="hidden" asp-for="PhoneNumber" />
+
+        <!-- Campos para latitude e longitude -->
+        <input type="hidden" id="latitude" name="Latitude" />
+        <input type="hidden" id="longitude" name="Longitude" />
+
+        <div class="button-MapFound">
+            <button type="submit" class="button-conclude">Concluir</button>
+        </div>
+    </form>
+
+    <!-- Script do Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeShLfVqm2Y_LnFW8MKtzcoMRBbyEZuxQ&callback=initMap" async defer></script>
+    <!-- Script do mapa -->
+    <script src="~/js/foundmap.js" asp-append-version="true"></script>
+</body>
+</html>

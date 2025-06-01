@@ -29,24 +29,39 @@
 
             <nav class="navbar">
                 <a href="@Url.Action("MapPet", "Map")" class="active">ENCONTRE SEU PET</a>
-                <a href="#">ADOTE</a>
-                <a href="#">CÃES E FILHOTES</a>
-                <a href="#">OUTROS TIPOS DE ANIMAIS</a>
-                <a href="#">SOBRE</a>
+                <a href="@Url.Action("Adoption", "PetAdoption")" class="active">ADOTE</a>
+                <a href="@Url.Action("Adoption", "PetAdoption", new { tipo = "Cachorro", idade = 3 })">CÃES E FILHOTES</a>
+                <a href="@Url.Action("Adoption", "PetAdoption", new { tipo = "Outros" })">
+                    OUTROS TIPOS DE ANIMAIS
+                </a>
+                <a href="@Url.Action("About", "About")" class="active">SOBRE</a>
             </nav>
 
-            <div class="hr-login"></div>
-
-            @if (User.Identity.IsAuthenticated)
-            {
-                <!-- Botão para redirecionar ao perfil -->
-                <a href="@Url.Action("Profile", "Account")" class="btn" id="accountBtn">Perfil</a>
-            }
-            else
-            {
-                <!-- Botão para usuários não logados -->
-                <a href="@Url.Action("LoginAndRegister", "Account")" class="btn" id="loginBtn">Faça Login</a>
-            }
+            <div class="mobile-controls">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <!-- Botão para redirecionar ao perfil -->
+                    <a href="@Url.Action("Profile", "Account")" class="btn" id="accountBtn">
+                        <span class="textBtn">Perfil</span>
+                        <span>
+                            <i class="fa-solid fa-user" id="iconNormal"></i>
+                            <i class="fa-solid fa-user fa-xs" id="xsIcon"></i>
+                        </span>
+                    </a>
+                }
+                else
+                {
+                    <!-- Botão para usuários não logados -->
+                    <a href="@Url.Action("LoginAndRegister", "Account")" class="btn" id="loginBtn">
+                        <span class="textBtn">Faça Login</span>
+                        <span>
+                            <i class="fa-solid fa-user" id="iconNormal"></i>
+                            <i class="fa-solid fa-user fa-xs" id="xsIcon"></i>
+                        </span>
+                    </a>
+                }
+                <button class="hamburguer"></button>
+            </div>
 
         </header>
 
@@ -58,28 +73,35 @@
         </div>
 
         <div class="container">
-            <div class="background-cont__input">
-                <input class="inputs" id="input1" type="text" placeholder="Digite 'Cachorro' ou 'Gato'">
+            <form method="get" action="@Url.Action("Adoption", "PetAdoption")" class="background-cont__input" style="display:flex;align-items:center;">
+                <input class="inputs" id="input1" name="tipo" type="text" placeholder="Digite 'Cachorro' ou 'Gato'">
                 <div class="elemento-com-linha"></div>
-                <input class="inputs" id="input2" type="text" placeholder="Digite 'Macho' ou 'Fêmea'">
-                <button class="button">
+                <input class="inputs" id="input2" name="sexo" type="text" placeholder="Digite 'Macho' ou 'Fêmea'">
+                <button class="button" type="submit">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
-            </div>
+            </form>
         </div>
+
 
         <ul class="cards-options">
             <li>
-                <i class="fa-solid fa-dog fa-3x"></i>
-                Cachorros
+                <a href="@Url.Action("Adoption", "PetAdoption", new { tipo = "Cachorro" })">
+                    <i class="fa-solid fa-dog fa-3x"></i>
+                    Cachorros
+                </a>
             </li>
             <li>
-                <i class="fa-solid fa-cat fa-3x"></i>
-                Gatos
+                <a href="@Url.Action("Adoption", "PetAdoption", new { tipo = "Gato" })">
+                    <i class="fa-solid fa-cat fa-3x"></i>
+                    Gatos
+                </a>
             </li>
             <li>
-                <i class="fa-solid fa-horse fa-3x"></i>
-                Outros animais
+                <a href="@Url.Action("Adoption", "PetAdoption", new { tipo = "Outros" })">
+                    <i class="fa-solid fa-cat fa-3x"></i>
+                    Outros animais
+                </a>
             </li>
             <li>
                 <i class="fa-solid fa-house-flag fa-3x"></i>
@@ -94,36 +116,20 @@
             </div>
             <div class="container-grid-recommended">
                 <div class="grid-options">
-                    <div class="card card-1">
-                        <img class='img img-card1' src="./img/card1.jpg" alt="">
-                        <div class="legend-before">
-                            <div class="legend legend4">
-                                <h1>
-                                    Olá, venha me adotar!
-                                </h1>
+                    @foreach (var pet in ((IEnumerable<PetSaver.Models.Pets>)ViewBag.PetsParaAdocao).Take(3))
+                    {
+                        <a href="@Url.Action("Adoption", "PetAdoption")" class="card" style="text-decoration:none; color:inherit;">
+                            <img class="img" src="@Url.Content(pet.ImagemUrl.StartsWith("/") ? pet.ImagemUrl : $"/{pet.ImagemUrl}")" alt="Foto do Pet">
+                            <div class="legend-before">
+                                <div class="legend legend4">
+                                    <h1>Olá, venha me adotar!</h1>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="card card-2">
-                        <img class='img img-card2' src="./img/card2.jpg" alt="">
-                        <div class="legend-before">
-                            <div class="legend legend4">
-                                <h1>
-                                    Olá, venha me adotar!
-                                </h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-3">
-                        <img class='img img-card3' src="./img/card3.jpg" alt="">
-                        <div class="legend-before">
-                            <div class="legend legend4">
-                                <h1>
-                                    Olá, venha me adotar!
-                                </h1>
-                            </div>
-                        </div>
-                    </div>
+                        </a>
+                    }
+
+
+                    <!-- Card extra para "ver mais" -->
                     <div class="card card-4">
                         <div class="legend legend4">
                             <i class="fa-solid fa-paw fa-4x" style="color: #ffffff;"></i>
@@ -131,12 +137,19 @@
                         </div>
                         <div class="view-more">
                             <hr style="border: 1px solid rgb(255, 255, 255); width: 100%;">
-                            <p>ver mais</p>
+                            <form method="get" action="@Url.Action("Adoption", "PetAdoption")" style="display:inline;">
+                                <button type="submit" style="background:none; border:none; color:inherit; cursor:pointer; padding:0; font:inherit; margin-top:12px;">
+                                    Ver mais
+                                </button>
+
+                            </form>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
+
 
         <section class="planning-adopt">
             <div class="planning-adopt__text">
@@ -153,7 +166,7 @@
                         </div>
                         <div class="button-adopt">
                             <a href="@Url.Action("AboutNewOwner", "About")" class="button-link">
-                                 SABER MAIS
+                                SABER MAIS
                             </a>
                         </div>
 
@@ -173,21 +186,6 @@
                         </div>
                     </div>
                 </a>
-                <a href="">
-                    <div class="planning-adopt__card-i card3">
-                        <i class="fa-solid fa-comments fa-4x"></i>
-                        <div class="planning-text">
-                            <h2>ADOÇÃO DE ANIMAIS FAQ</h2>
-                            <p>Obtenha respostas para todas as perguntas que você não pensou sobre sua adoção.</p>
-                        </div>
-                        <div class="button-adopt">
-                            <div>
-                                <span>SABER MAIS</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
             </div>
 
         </section>
@@ -197,7 +195,7 @@
 
 
     <footer class="footer">
-        © 2025 Seu Nome. Todos os direitos reservados.
+        © 2025 BuscaPet. Todos os direitos reservados.
     </footer>
 
     <script>

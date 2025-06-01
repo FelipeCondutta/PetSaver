@@ -32,6 +32,16 @@
             </nav>
 
             <div class="hr-login"></div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <!-- Botão para redirecionar ao perfil -->
+                <a href="@Url.Action("Profile", "Account")" class="btn" id="accountBtn">Perfil</a>
+            }
+            else
+            {
+                <!-- Botão para usuários não logados -->
+                <a href="@Url.Action("LoginAndRegister", "Account")" class="btn" id="loginBtn">Faça Login</a>
+            }
         </header>
 
         <div class="container">

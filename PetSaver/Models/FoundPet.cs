@@ -29,6 +29,9 @@ namespace PetSaver.Models
         [Required(ErrorMessage = "É necessário informar se o telefone será compartilhado.")]
         public bool SharePhone { get; set; } // Se o telefone será compartilhado
 
+        [Required(ErrorMessage = "O telefone é obrigatório.")]
+        public string PhoneNumber { get; set; }
+
         public double Latitude { get; set; }
 
         public double Longitude { get; set; }
