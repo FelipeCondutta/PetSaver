@@ -1,0 +1,222 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f1f1f1;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    padding: 15px;
+    height: 100px;
+    background: #7494ec;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.logo-header {
+    width: 200px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.navbar, a {
+    display: flex;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    transition: .3s;
+    flex-direction: row;
+    gap: 10px;
+    margin-right: 10px;
+}
+
+    .navbar a:hover {
+        color: #42c1e8;
+    }
+
+    .navbar a.active {
+        font-weight: 700;
+    }
+
+.btn {
+    padding: 10px 30px;
+    background: #fff;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #7494ec;
+    letter-spacing: 1px;
+    font-weight: 600;
+    flex-shrink: 0;
+    flex-grow: 0;
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    white-space: nowrap; /* Impede quebra de linha */
+    flex: 0 0 auto; /* Não encolhe nem cresce */
+}
+
+.hamburguer {
+    border: none;
+    background: none;
+    border-top: 3px solid #fff;
+    cursor: pointer;
+    display: none;
+}
+
+    .hamburguer::before,
+    .hamburguer::after {
+        content: "";
+        display: block;
+        width: 30px;
+        height: 3px;
+        background: #fff;
+        margin-top: 5px;
+        position: relative;
+        transition: 0.3s;
+    }
+
+.mobile-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Estilos para telas pequenas */
+@media (max-width: 900px) {
+    .header {
+        justify-content: space-between;
+    }
+
+    .hamburguer {
+        display: block;
+        z-index: 2;
+    }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #7494ec;
+        clip-path: circle(100px at 90% -15%);
+        transition: 0.4s ease-in;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        gap: 0;
+        pointer-events: none;
+    }
+
+        .navbar a {
+            font-size: 24px;
+            opacity: 0;
+        }
+
+        .navbar.active {
+            clip-path: circle(2000px at 90% -15%);
+            pointer-events: all;
+        }
+
+            .navbar.active a {
+                opacity: 1;
+            }
+
+            .navbar.active ~ .mobile-controls .hamburguer {
+                position: fixed;
+                top: 26px;
+                right: 16px;
+                border-top-color: transparent;
+            }
+
+                .navbar.active ~ .mobile-controls .hamburguer::before {
+                    transform: rotate(135deg);
+                }
+
+                .navbar.active ~ .mobile-controls .hamburguer::after {
+                    transform: rotate(-135deg);
+                    top: -7px;
+                }
+
+            .navbar.active ~ .mobile-controls .btn {
+                z-index: auto;
+                opacity: 0;
+                pointer-events: none;
+                transition: 0.4s;
+            }
+
+    .btn {
+        width: 40px; /* largura fixa */
+        height: 40px; /* altura igual à largura */
+        padding: 0; /* remove o espaçamento interno */
+        background: #fff;
+        border: 2px solid #fff;
+        border-radius: 50%; /* faz virar um círculo */
+        font-size: 24px; /* aumenta o tamanho do conteúdo */
+        color: #7494ec;
+        font-weight: 600;
+        display: flex; /* centraliza o conteúdo */
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        flex: 0 0 auto;
+        z-index: 1;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .textBtn {
+        display: none;
+    }
+
+    #iconNormal {
+        display: none;
+    }
+}
+
+/* Estilos para telas grandes */
+@media (min-width: 901px) {
+    .hamburguer {
+        display: none;
+    }
+
+    .mobile-controls .btn {
+        display: inline-block;
+    }
+
+    #xsIcon {
+        display: none;
+    }
+}
+
+.contentAbout {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 2;
+    margin: 30px 30px;
+    background-color: #fff;
+    padding: 30px;
+    max-width: 100vh;
+}
+
+#titleContent {
+    font-weight: 600;
+    font-size: 35px;
+    color: #7494ec;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.titleAbout {
+    margin: 10px 0 10px 0;
+    color: #7494ec;
+    font-weight: 600;
+}

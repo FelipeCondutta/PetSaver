@@ -1,0 +1,133 @@
+﻿@model IEnumerable<PetSaver.Models.ViewModel.AdoptionRequestViewModel>
+@{
+    ViewData["Title"] = "Meus Casos de Adoção";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Meus Casos de Adoção</title>
+    <link rel="stylesheet" href="/css/index.css" asp-append-version="true">
+    <style>
+        .adoption-container {
+            max-width: 800px;
+            margin: 40px auto 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 32px 24px 24px 24px;
+            border-top: 6px solid #2563eb; /* azul forte */
+        }
+
+        .adoption-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2563eb; /* azul forte */
+            margin-bottom: 24px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .adoption-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+        }
+
+            .adoption-table th, .adoption-table td {
+                padding: 12px 8px;
+                border-bottom: 1px solid #e0e0e0;
+                text-align: left;
+                color: #1e293b;
+            }
+
+            .adoption-table th {
+                background: #e3eafe; /* azul claro */
+                color: #2563eb;
+                font-weight: 700;
+            }
+
+            .adoption-table tr:last-child td {
+                border-bottom: none;
+            }
+
+        .status-approved {
+            color: #2563eb; /* azul forte */
+            font-weight: 600;
+        }
+
+        .status-pending {
+            color: #f39c12;
+            font-weight: 600;
+        }
+
+        .alert-info {
+            background: #e3eafe;
+            color: #2563eb;
+            padding: 18px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .btn-back {
+            display: inline-block;
+            background: #2563eb;
+            color: #fff;
+            padding: 10px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+            margin-top: 8px;
+            border: none;
+        }
+
+            .btn-back:hover {
+                background: #1e40af;
+            }
+
+    </style>
+</head>
+<body style="background: #f5f6fa;">
+    <div class="adoption-container">
+        <div class="adoption-title">Meus Casos de Adoção</div>
+        @if (!Model.Any())
+        {
+            <div class="alert-info">
+                Você ainda não fez nenhuma solicitação de adoção.
+            </div>
+        }
+        else
+        {
+            <table class="adoption-table">
+                <thead>
+                    <tr>
+                        <th>Pet</th>
+                        <th>Data da Solicitação</th>
+                        <th>Status</th>
+                        <th>Motivo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.PetNome</td>
+                            <td>@item.RequestDate.ToString("dd/MM/yyyy")</td>
+                            <td>
+                                <span class="@(item.IsApproved ? "status-approved" : "status-pending")">
+                                    @(item.IsApproved ? "Aprovado" : "Pendente")
+                                </span>
+                            </td>
+                            <td>@item.ReasonForAdoption</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        <a href="@Url.Action("Profile", "Account")" class="btn-back"><i class="fas fa-arrow-left"></i> Voltar</a>
+    </div>
+</body>
+</html>

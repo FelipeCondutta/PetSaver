@@ -1,0 +1,139 @@
+﻿@model PetSaver.Models.FoundPet
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Pet Encontrado";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontrei um pet</title>
+    <link rel="stylesheet" href="~/css/foundpet.css" asp-append-version="true">
+    <script src="https://kit.fontawesome.com/7c72460651.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="header">
+        <a href="@Url.Action("Index", "Home")">
+            <img class="logo-header" src="~/img/oficial-logo2.png" alt="Logo">
+        </a>
+
+        <nav class="navbar">
+            <a href="@Url.Action("MapPet", "Map")" class="active">ENCONTRE SEU PET</a>
+            <a href="@Url.Action("Adoption", "PetAdoption")" class="active">ADOTE</a>
+            <a href="@Url.Action("Adoption", "PetAdoption", new { tipo = "Cachorro", idade = 3 })">CÃES E FILHOTES</a>
+            <a href="@Url.Action("Adoption", "PetAdoption", new { tipo = "Outros" })">
+                OUTROS TIPOS DE ANIMAIS
+            </a>
+            <a href="@Url.Action("About", "About")" class="active">SOBRE</a>
+        </nav>
+        <div class="mobile-controls">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <!-- Botão para redirecionar ao perfil -->
+                <a href="@Url.Action("Profile", "Account")" class="btn" id="accountBtn">
+                    <span class="textBtn">Perfil</span>
+                    <span>
+                        <i class="fa-solid fa-user" id="iconNormal"></i>
+                        <i class="fa-solid fa-user fa-xs" id="xsIcon"></i>
+                    </span>
+                </a>
+            }
+            else
+            {
+                <!-- Botão para usuários não logados -->
+                <a href="@Url.Action("LoginAndRegister", "Account")" class="btn" id="loginBtn">
+                    <span class="textBtn">Faça Login</span>
+                    <span>
+                        <i class="fa-solid fa-user" id="iconNormal"></i>
+                        <i class="fa-solid fa-user fa-xs" id="xsIcon"></i>
+                    </span>
+                </a>
+            }
+            <button class="hamburguer"></button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="container-form">
+            <h2>Nos conte mais sobre o Pet</h2>
+            <form asp-action="MapFoundPet" asp-controller="Map" method="post" enctype="multipart/form-data" id="foundPetForm">
+                <div>
+                    <div class="idadeAproxim">
+                        <input type="number" asp-for="ApproximateAge" min="0" placeholder="Idade aprox." required />
+                        <select asp-for="AgeUnit" required>
+                            <option value="">Selecione</option>
+                            <option value="anos">Ano(s)</option>
+                            <option value="meses">Mês(es)</option>
+                        </select>
+                        @Html.ValidationMessageFor(m => m.ApproximateAge, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(m => m.AgeUnit, "", new { @class = "text-danger" })
+                    </div>
+                    <p>Sexo</p>
+                    <div class="sexoPet">
+                        <select asp-for="Gender" required>
+                            <option value="">Selecione</option>
+                            <option value="macho">Macho</option>
+                            <option value="fem">Fêmea</option>
+                            <option value="dontknow">Não sei</option>
+                        </select>
+                        @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
+                    </div>
+                    <p>Código do chip indentificador (se souber)</p>
+                    <input asp-for="ChipCode" class="ChipIdentifica" type="text" maxlength="50" />
+                    <p>Descrição (nos conte mais sobre o Pet)</p>
+                    <textarea asp-for="Description" class="descPet" maxlength="400" required></textarea>
+                    @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                    <div class="content-phone">
+                        <label for="PhoneNumber">Telefone para contato</label>
+                        <input asp-for="PhoneNumber" type="tel" class="ChipIdentifica" required maxlength="20" placeholder="(99) 99999-9999" />
+                        @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+                    </div>
+                    <p>Imagem do Pet perdido</p>
+                    <label for="ImageFile" id="fileLabel" class="custom-file-label">📂 Selecionar Arquivo</label>
+                    <input asp-for="ImageFile" type="file" id="ImageFile" class="custom-file-input" accept="image/*" style="display: none;" required />
+                    @Html.ValidationMessageFor(m => m.ImageFile, "", new { @class = "text-danger" })
+                    <div class="submitForm">
+                        <button type="submit" class="button-submitForm">Próximo ></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById("ImageFile").addEventListener("change", function () {
+            const fileInput = this;
+            const fileLabel = document.getElementById("fileLabel");
+
+            if (fileInput.files && fileInput.files.length > 0) {
+                // Obtém o nome do arquivo selecionado
+                const fileName = fileInput.files[0].name;
+
+                // Atualiza o texto do botão para mostrar o nome do arquivo
+                fileLabel.textContent = `📂 Arquivo Selecionado: ${fileName}`;
+            } else {
+                // Caso o usuário cancele a seleção, restaura o texto original
+                fileLabel.textContent = "📂 Selecionar Arquivo";
+            }
+        });
+
+        document.getElementById("foundPetForm").addEventListener("submit", function (e) {
+            var form = e.target;
+            var requiredFields = form.querySelectorAll("[required]");
+            var allFilled = true;
+            requiredFields.forEach(function (field) {
+                if (!field.value) {
+                    allFilled = false;
+                }
+            });
+            if (!allFilled) {
+                e.preventDefault();
+                alert("Por favor, preencha todos os campos obrigatórios antes de continuar.");
+            }
+        });
+    </script>
+</body>
+</html>

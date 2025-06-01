@@ -1,0 +1,315 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Reset básico */
+body, h1, h2, h3, p, ul, li, figure {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+/* Cabeçalho azul */
+.header {
+    background-color: #6495ed;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-content h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.header-content p {
+    font-size: 1rem;
+}
+
+/* Barra de busca/filtros no topo */
+.animalSearchHeader {
+    background-color: #5c87e8;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.filterSearch {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.dropdownSearchPet {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+    color: white;
+}
+
+    .dropdownSearchPet label {
+        margin-bottom: 0.3rem;
+    }
+
+    .dropdownSearchPet input,
+    .dropdownSearchPet select {
+        padding: 0.5rem;
+        border: none;
+        border-radius: 8px;
+        outline: none;
+        width: 150px;
+    }
+
+.buttonFilter {
+    background-color: white;
+    color: #5c87e8;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+    .buttonFilter:hover {
+        background-color: #e1e8fd;
+    }
+
+/* Container com sidebar + cards */
+.container {
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+/* Sidebar lateral esquerda (filtros) - opcional */
+.sidebar {
+    width: 200px;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+    .sidebar label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .sidebar .filter-button {
+        background-color: #5c87e8;
+        color: white;
+        border: none;
+        border-radius: 15px;
+        padding: 0.4rem 0.8rem;
+        cursor: pointer;
+    }
+
+/* Cards dos pets */
+.cardsPets {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    flex: 1;
+}
+
+.cardPet {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+    .cardPet:hover {
+        transform: translateY(-5px);
+    }
+
+.card-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+    .card-content h3 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+.infosPet p {
+    background-color: #eee;
+    display: inline-block;
+    border-radius: 12px;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.85rem;
+    margin-right: 0.3rem;
+    margin-top: 0.3rem;
+}
+
+.adopt-button {
+    margin-top: 0.5rem;
+    background-color: #5c87e8;
+    color: white;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+    .adopt-button:hover {
+        background-color: #4a72d3;
+    }
+
+/* Rodapé */
+/* Estilo para o rodapé fixo */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8f9fa; /* Cor de fundo do rodapé */
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+    font-size: 14px;
+}
+
+.navbar,
+a {
+    display: flex;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    transition: .3s;
+    flex-direction: row;
+    gap: 10px;
+    margin-right: 10px;
+}
+
+    .navbar a:hover {
+        color: #42c1e8;
+    }
+
+    .navbar a.active {
+        font-weight: 700;
+    }
+/* Estilo para a logo no header */
+/* Ajuste para o header */
+.header {
+    position: relative; /* Define o contexto para posicionamento absoluto */
+    background-color: #6495ed;
+    color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Ajuste para o conteúdo do header */
+.header-content {
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Ajuste para a logo no canto superior direito */
+/* Ajuste para a logo no canto superior esquerdo */
+.logo-header {
+    position: absolute; /* Posiciona a logo em relação ao header */
+    top: -15px; /* Distância do topo */
+    left: 10px; /* Distância da borda esquerda */
+    width: 200px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
+}
+
+/* Estilo para a seção do formulário */
+.form-section {
+    margin: 2rem auto;
+    max-width: 600px;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para o formulário */
+.adoption-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Estilo para os grupos de formulário */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+    .form-group label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.8rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+        width: 100%;
+    }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #6495ed;
+            outline: none;
+        }
+
+/* Estilo para o botão de envio */
+.submit-button {
+    background-color: #6495ed;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .submit-button:hover {
+        background-color: #4169e1;
+    }
+
+.button-submitForm {
+    background-color: #6495ed;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .button-submitForm:hover {
+        background-color: #4169e1;
+    }
+

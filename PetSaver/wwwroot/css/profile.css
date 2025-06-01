@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Poppins', 'sans-serif';
+    background-color: #f1f1f1;
+}
+
+.header {
+    width: 100%;
+    padding: 20px 0;
+    background: #7494ec;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha a logo à esquerda */
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.logo-header {
+    width: 200px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 40px;
+    flex-shrink: 0;
+}
+
+.navbar {
+    display: flex;
+    flex: 1;
+    justify-content: center; /* Centraliza os botões no espaço restante */
+    gap: 20px;
+}
+
+
+    .navbar a {
+        font-size: 18px;
+        color: #fff;
+        font-weight: 500;
+        margin: 0 10px;
+        transition: .3s;
+        text-align: center;
+    }
+
+
+    .navbar a:hover {
+        color: #42c1e8;
+    }
+
+    .navbar a.active {
+        font-weight: 700;
+    }
+
+.btn {
+    padding: 10px 30px;
+    background: #fff;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #7494ec;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.content-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.container-form {
+    margin: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content-form {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: #ffffff; /* Fundo branco para destacar */
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    box-sizing: border-box;
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+.content-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 18px; /* Tamanho do texto */
+    color: #555; /* Cor do texto */
+}
+
+.edit-profile {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    background-color: #7494ec;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 10px; /* Bordas arredondadas */
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+    .edit-profile:hover {
+        background-color: #0056b3; /* Cor ao passar o mouse */
+    }
+
+.content-link a {
+    text-decoration: none;
+    color: #ffffff; /* Cor branca */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+    .content-link a:hover {
+        color: #dcdcdc; /* Cor branca mais clara ao passar o mouse */
+    }
+
+form button.edit-profile {
+    width: 100%; /* Faz o botão ocupar toda a largura */
+    max-width: 600px; /* Limita o tamanho máximo */
+    margin-top: 20px;
+}

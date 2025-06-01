@@ -1,0 +1,154 @@
+﻿@using System.Security.Claims
+@model PetSaver.Models.AdoptionRequest
+
+@{
+    ViewData["Title"] = "Formulário de Adoção";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Adoção</title>
+    <link rel="stylesheet" href="~/css/loginandregister.css" asp-append-version="true">
+    <style>
+        .adoption-form-box {
+            max-width: 370px;
+            width: 100%;
+            padding: 24px 14px 18px 14px;
+            position: static;
+            margin: 0 auto;
+            box-shadow: 0 0 18px rgba(0,0,0,0.08);
+        }
+
+            .adoption-form-box h1 {
+                font-size: 1.3rem;
+                margin-bottom: 10px;
+            }
+
+        .adoption-form .input-box {
+            margin: 16px 0;
+            position: relative;
+        }
+
+            .adoption-form .input-box input,
+            .adoption-form .input-box textarea {
+                font-size: 0.95rem;
+                padding: 8px 38px 8px 12px;
+                min-height: 32px;
+                border-radius: 6px;
+                width: 100%;
+                box-sizing: border-box;
+                border: none;
+                background: #eee;
+                resize: none;
+            }
+
+            .adoption-form .input-box textarea {
+                min-height: 38px;
+                max-height: 100px;
+                line-height: 1.4;
+            }
+
+            .adoption-form .input-box i {
+                font-size: 1rem;
+                right: 12px;
+                top: 50%;
+                transform: translateY(-50%);
+                position: absolute;
+            }
+
+        .adoption-form .btn {
+            font-size: 1rem;
+            height: 38px;
+            border-radius: 6px;
+            margin-top: 8px;
+        }
+
+        .adoption-form .text-danger {
+            font-size: 0.85rem;
+        }
+
+        .btn-back {
+            position: fixed;
+            top: 18px;
+            left: 18px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            background: #fff;
+            color: #333;
+            border: none;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 8px 16px 8px 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            text-decoration: none;
+        }
+
+            .btn-back:hover {
+                background: #f0f0f0;
+                color: #1976d2;
+            }
+
+            .btn-back i {
+                font-size: 1.2rem;
+                margin-right: 8px;
+            }
+    </style>
+</head>
+<body>
+    <!-- Botão de voltar -->
+    <a href="@Url.Action("Adoption", "PetAdoption")" class="btn-back">
+        <i class='bx bx-arrow-back'></i> Voltar
+    </a>
+
+    <div class="container">
+        <div class="adoption-form-box form-box">
+            <form method="post" asp-action="SubmitAdoptionForm" asp-controller="PetAdoption" class="adoption-form">
+                <h1>Formulário de Adoção</h1>
+                <div class="input-box">
+                    <input asp-for="ApplicantName" placeholder="Nome completo" required />
+                    <i class='bx bxs-user'></i>
+                    <span asp-validation-for="ApplicantName" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <input asp-for="ApplicantEmail" type="email" placeholder="E-mail" required />
+                    <i class='bx bxs-envelope'></i>
+                    <span asp-validation-for="ApplicantEmail" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <input asp-for="ApplicantPhone" type="tel" placeholder="Telefone" />
+                    <i class='bx bxs-phone'></i>
+                    <span asp-validation-for="ApplicantPhone" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <input asp-for="Address" placeholder="Endereço completo" required />
+                    <i class='bx bxs-home'></i>
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <textarea asp-for="ReasonForAdoption" placeholder="Por que você deseja adotar este pet?" rows="3"></textarea>
+                    <i class='bx bxs-message-square-detail'></i>
+                    <span asp-validation-for="ReasonForAdoption" class="text-danger"></span>
+                </div>
+                <input type="hidden" asp-for="PetId" />
+                <input type="hidden" asp-for="UserId" value="@User.FindFirstValue(ClaimTypes.NameIdentifier)" />
+                <button type="submit" class="btn">Enviar Pedido de Adoção</button>
+            </form>
+        </div>
+    </div>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</body>
+</html>

@@ -1,0 +1,230 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.container {
+    padding: 20px;
+}
+
+@media (min-width: 901px) {
+    .hamburguer {
+        display: none;
+    }
+
+    .mobile-controls .btn {
+        display: inline-block;
+    }
+
+    #xsIcon {
+        display: none;
+    }
+}
+
+body {
+    font-family: 'Poppins', 'sans-serif';
+    background-color: #f1f1f1;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    background: #7494ec;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 100;
+    font-family: 'Poppins', 'sans-serif';
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.logo-header {
+    width: 200px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.header .btn {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    margin: 0 10px;
+    transition: .3s;
+}
+
+    .navbar a:hover {
+        color: #42c1e8;
+    }
+
+    .navbar a.active {
+        font-weight: 700;
+    }
+
+.btn {
+    padding: 10px 30px;
+    background: #fff;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #7494ec;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.container-form > h2 {
+    text-align: center;
+    font-weight: 600;
+    color: #f1f1f1;
+    font-size: large;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.container-form {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 5vh auto;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    gap: 20px;
+    background-color: #7494ec;
+    color: #f1f1f1;
+    font: 500;
+    border-radius: 10px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+
+.idadeAproxim {
+    width: 100%; /* Faz a div ocupar toda a largura do container */
+    display: flex; /* Ativa o Flexbox */
+    gap: 10px; /* Espaço entre os elementos */
+    margin-top: 20px;
+}
+/* Para Chrome, Safari, Edge e outros navegadores WebKit, remover setas do input */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.idadeAproxim input {
+    flex: 4; /* Ocupa mais espaço */
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', 'sans-serif';
+    color: #333;
+}
+
+.idadeAproxim select {
+    flex: 1; /* Ocupa menos espaço */
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    font-family: 'Poppins', 'sans-serif';
+    color: #333;
+}
+
+.sexoPet {
+    width: 100%; /* A div ocupa toda a largura disponível */
+}
+
+    .sexoPet select {
+        width: 100%; /* Faz o select ocupar toda a largura da div */
+        padding: 10px; /* Adiciona um espaçamento interno */
+        font-size: 16px; /* Ajusta o tamanho do texto */
+        border-radius: 8px;
+        border: none;
+        font-weight: 400px;
+        font-family: 'Poppins', 'sans-serif';
+        color: #333;
+    }
+
+.ChipIdentifica {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-family: 'Poppins', 'sans-serif';
+    color: #333;
+    font-weight: 500;
+}
+
+.descPet {
+    width: 100%; /* Ocupa toda a largura disponível */
+    height: 200px; /* Altura fixa */
+    padding: 10px;
+    resize: none; /* Impede o redimensionamento */
+    overflow-y: auto; /* Permite rolagem apenas verticalmente se necessário */
+    box-sizing: border-box; /* Garante que padding não afete o tamanho */
+    font-size: 16px; /* Ajusta o tamanho da fonte */
+    border-radius: 8px;
+    border: none;
+    font-family: 'Poppins', 'sans-serif';
+    color: #333;
+    font-weight: 500;
+}
+
+.content-checkbox {
+    margin: 10px 0;
+}
+
+.submitForm {
+    margin: 20px 0 0 0;
+    width: 100%;
+}
+
+.button-submitForm {
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Poppins', 'sans-serif';
+    color: #333;
+    padding: 10px;
+    font-weight: 700;
+    background-color: #f1f1f1;
+    color: #7494ec;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+p {
+    margin: 10px 0;
+}
+
+.custom-file-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px; /* Limita o tamanho do texto */
+}
+
+    .custom-file-label:hover {
+        background-color: #0056b3;
+    }
+

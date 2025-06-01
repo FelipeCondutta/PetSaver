@@ -1,0 +1,178 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Novo Dono";
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela principal</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css/about.css" asp-append-version="true">
+
+    <!-- Ícones -->
+    <script src="https://kit.fontawesome.com/7c72460651.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main>
+        <header class="header">
+            <a href="@Url.Action("Index", "Home")">
+                <img class="logo-header" src="~/img/oficial-logo2.png" alt="Logo">
+            </a>
+
+            <nav class="navbar">
+                <a href="@Url.Action("MapPet", "Map")" class="active">ENCONTRE SEU PET</a>
+                <a href="#">ADOTE</a>
+                <a href="#">CÃES E FILHOTES</a>
+                <a href="#">OUTROS TIPOS DE ANIMAIS</a>
+                <a href="@Url.Action("About", "About")" class="active">SOBRE</a>
+            </nav>
+
+            <div class="mobile-controls">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <!-- Botão para redirecionar ao perfil -->
+                    <a href="@Url.Action("Profile", "Account")" class="btn" id="accountBtn">
+                        <span class="textBtn">Perfil</span>
+                        <span>
+                            <i class="fa-solid fa-user" id="iconNormal"></i>
+                            <i class="fa-solid fa-user fa-xs" id="xsIcon"></i>
+                        </span>
+                    </a>
+                }
+                else
+                {
+                    <!-- Botão para usuários não logados -->
+                    <a href="@Url.Action("LoginAndRegister", "Account")" class="btn" id="loginBtn">
+                        <span class="textBtn">Faça Login</span>
+                        <span>
+                            <i class="fa-solid fa-user" id="iconNormal"></i>
+                            <i class="fa-solid fa-user fa-xs" id="xsIcon"></i>
+                        </span>
+                    </a>
+                }
+                <button class="hamburguer"></button>
+            </div>
+
+        </header>
+
+        <div class="container">
+            <div class="contentAbout">
+                <h1 id="titleContent">Sobre a PetSearch</h1>
+                <p>
+                    <h2 class="titleAbout">Quem Somos?</h2>
+                <p>
+                    Sabemos que cada conexão com um animal é única, cheia de amor, cuidado e significado.
+                    Acreditamos que todo pet merece um lar cheio de carinho e que nenhum animal deveria se sentir
+                    perdido ou abandonado.
+                </p>
+
+                <p>
+                    Somos um grupo de <strong>
+                        estudantes de Tecnologia da Informação apaixonados por
+                        animais
+                    </strong> e movidos pela vontade de fazer a diferença.
+                    Unimos nosso amor pelos bichinhos à nossa paixão por tecnologia para criar uma plataforma
+                    dedicada a
+                    <strong>facilitar a adoção responsável e auxiliar no resgate de animais perdidos.</strong>
+                </p>
+
+                <p>
+                    Nossa missão vai além de desenvolver um software.
+                    <strong>
+                        Queremos construir pontes entre quem ama, cuida e quer oferecer uma nova chance para
+                        cães, gatos e tantos outros animais incríveis.
+                    </strong>
+                    Trabalhamos todos os dias para que o reencontro entre tutores e pets perdidos aconteça, e que
+                    animais em situação de abandono encontrem novos lares cheios de amor.
+                </p>
+
+                <p>
+                    Assim como você, também somos apaixonados por animais!
+                    Essa não é só uma frase bonita — é o que guia nossas escolhas, nosso trabalho e cada
+                    funcionalidade pensada no nosso sistema.
+                    Afinal, acreditamos que <strong>tecnologia e amor podem (e devem) andar juntos.</strong>
+                </p>
+
+                <p>
+                    Nosso software é pensado para ser intuitivo, prático e acolhedor.
+                    Tudo é desenvolvido para que você encontre de forma rápida:
+                </p>
+
+                <ul>
+                    <li>🐶 Um animal para adoção;</li>
+                    <li>🐱 Cadastre animais perdidos;</li>
+                    <li>🔍 Busque por pets desaparecidos;</li>
+                    <li>❤️ E, principalmente, <strong>crie laços que mudam vidas.</strong></li>
+                </ul>
+
+                <p>
+                    Aqui, cada clique, cada cadastro e cada busca é uma chance real de transformar a vida de um
+                    animal.
+                </p>
+
+                <p>
+                    Sabemos que, muitas vezes, o tempo é curto, mas não queremos que isso seja um obstáculo para
+                    quem deseja ajudar.
+                    Por isso, nosso compromisso é criar uma plataforma que seja simples, acessível e que funcione em
+                    qualquer lugar, a qualquer hora.
+                </p>
+
+                <p>
+                    Acreditamos que <strong>
+                        cuidar, proteger e amar um animal é um dos maiores atos de empatia que
+                        podemos ter.
+                    </strong>
+                    E é exatamente esse sentimento que nos move.
+                </p>
+
+                <p>
+                    Seja muito bem-vindo(a) à nossa plataforma! Aqui você vai:
+                </p>
+
+                <ul>
+                    <li>Criar laços.</li>
+                    <li>Encontrar novas histórias.</li>
+                    <li>Mudar o destino de muitos animais.</li>
+                </ul>
+
+                <p>
+                    🐾 <strong>Porque amor se constrói, se compartilha e, principalmente, se adota. 💙</strong>
+                </p>
+
+                <h3>Nossa Missão:</h3>
+                <p>
+                    Criar valor através da conexão entre pessoas e animais, facilitando a adoção responsável e
+                    contribuindo para o resgate de pets perdidos,
+                    usando a tecnologia como ferramenta para espalhar amor e cuidado.
+                </p>
+
+                <h3>Nossa Visão:</h3>
+                <p>
+                    Ser referência como uma das melhores plataformas digitais para adoção, proteção e resgate de
+                    animais,
+                    promovendo lares felizes e menos animais nas ruas.
+                </p>
+
+                <h3>Nossos Valores:</h3>
+                <ul>
+                    <li>Somos apaixonados por animais.</li>
+                    <li>Acreditamos na tecnologia como ferramenta de transformação social.</li>
+                    <li>Respeitamos todos os seres vivos.</li>
+                    <li>Trabalhamos com empatia, ética e responsabilidade.</li>
+                    <li>Valorizamos cada história e cada vida.</li>
+                    <li>
+                        Acreditamos que juntos somos mais fortes na construção de um mundo melhor para os animais.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

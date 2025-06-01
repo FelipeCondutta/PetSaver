@@ -1,0 +1,124 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Novo Dono";
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist para adoção</title>
+    <link rel="stylesheet" href="/css/newowner.css" asp-append-version="true">
+    <script src="https://kit.fontawesome.com/7c72460651.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main>
+        <header class="header">
+            <a href="@Url.Action("Index", "Home")">
+                <img class="logo-header" src="~/img/oficial-logo2.png" alt="Logo">
+            </a>
+
+            <nav class="navbar">
+                <a href="@Url.Action("MapPet", "Map")" class="active">ENCONTRE SEU PET</a>
+                <a href="#">ADOTE</a>
+                <a href="#">CÃES E FILHOTES</a>
+                <a href="#">OUTROS TIPOS DE ANIMAIS</a>
+                <a href="#">SOBRE</a>
+            </nav>
+
+            <div class="mobile-controls">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <!-- Botão para redirecionar ao perfil -->
+                    <a href="@Url.Action("Profile", "Account")" class="btn" id="accountBtn">
+                        <span class="textBtn">Perfil</span>
+                        <span>
+                            <i class="fa-solid fa-user" id="iconNormal"></i>
+                            <i class="fa-solid fa-user fa-xs" id="xsIcon"></i>
+                        </span>
+                    </a>
+                }
+                else
+                {
+                    <!-- Botão para usuários não logados -->
+                    <a href="@Url.Action("LoginAndRegister", "Account")" class="btn" id="loginBtn">
+                        <span class="textBtn">Faça Login</span>
+                        <span>
+                            <i class="fa-solid fa-user" id="iconNormal"></i>
+                            <i class="fa-solid fa-user fa-xs" id="xsIcon"></i>
+                        </span>
+                    </a>
+                }
+                <button class="hamburguer"></button>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="content">
+                <div class="title-content">
+                    <h1>
+                        Checklist para adotar um Pet
+                    </h1>
+                </div>
+
+                <div class="button-share">
+                    <button>
+                        <button class="button">
+                            Compartilhar
+                            <span class="icon-share">
+                                <i class="fa-solid fa-share icon-first" style="color: #7494ec;"></i>
+                                <i class="fa-solid fa-share icon-second" style="color: #ffffff;"></i>
+                            </span>
+                        </button>
+                </div>
+
+                <div class="img-pet">
+                    <img src="/img/cachorroadotado.jpg" alt="Cachorro adotado">
+                </div>
+
+
+                <div class="class-content">
+                    <p>
+                        Parabéns por adotar um animal de estimação! Você está iniciando um relacionamento maravilhoso e
+                        gratificante. Como adotar um novo animal de estimação traz muitas mudanças tanto para o pet quanto
+                        para o tutor, compilamos uma lista de verificação para ajudar a tornar a transição o mais tranquila
+                        possível.
+                    </p>
+
+                    <section class="class-content">
+                        <h2 class="title-section">Perguntas para Todos os Adotantes</h2>
+                        <ul>
+                            <li>Você tem outros animais? Como eles reagirão a um novo pet?</li>
+                            <li>Sua residência atual é adequada para o pet que está considerando?</li>
+                            <li>Como sua vida social ou obrigações de trabalho afetarão sua capacidade de cuidar do pet?</li>
+                            <li>Você tem um plano para cuidar do novo pet durante férias e/ou viagens a trabalho?</li>
+                            <li>Como as pessoas com quem você mora se sentem sobre ter um animal em casa?</li>
+                            <li>Você (ou seu cônjuge, parceiro ou colega de quarto) tem intolerância a pelos, sujeira ou outras realidades de conviver com um pet (ex: alergias)?</li>
+                            <li>Você ou alguém da sua casa tem problemas de saúde que podem ser afetados pela presença de um animal?</li>
+                            <li>Qual raça ou espécie de animal combina melhor com seu estilo de vida atual?</li>
+                            <li>Há tensão na casa? Os pets percebem rapidamente o estresse no ambiente, o que pode piorar seus problemas de comportamento ou saúde.</li>
+                            <li>Há um adulto na família que assumiu responsabilidade final pelo cuidado do animal?</li>
+                        </ul>
+                    </section>
+
+                    <section class="class-content">
+                        <h2 class="title-section">Outras Considerações</h2>
+                        <ul>
+                            <li>O que você espera que o animal traga para sua vida? Exemplo: um parceiro para correr/caminhar ou companhia mais tranquila?</li>
+                            <li>Se você está pensando em adotar um animal jovem, tem tempo e paciência para lidar com comportamentos típicos da juventude?</li>
+                            <li>Você avaliou bem seu estilo de vida e decidiu se um animal mais novo ou mais velho combina melhor com você?</li>
+                            <li>Você é capaz de treinar e lidar com um pet com problemas de comportamento ou busca um pet tranquilo?</li>
+                            <li>Precisa de um animal confiável com crianças? Ou que possa viajar com você?</li>
+                            <li>Prefere um pet que te siga pela casa o tempo todo ou um mais independente?</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Mapa-Pet";
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/map.css" asp-append-version="true">
+
+    <!-- Trazer os links dos icones -->
+    <script src="https://kit.fontawesome.com/7c72460651.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="header">
+        <a href="@Url.Action("Index", "Home")">
+            <img class="logo-header" src="/img/oficial-logo2.png" alt="Logo">
+        </a>
+
+        <nav class="navbar">
+            <a href="@Url.Action("MapPet", "Map")" class="active">ENCONTRE SEU PET</a>
+            <a href="@Url.Action("Adoption", "PetAdoption")" class="active">ADOTE</a>
+            <a href="@Url.Action("Adoption", "PetAdoption", new { tipo = "Cachorro", idade = 3 })">CÃES E FILHOTES</a>
+            <a href="@Url.Action("Adoption", "PetAdoption", new { tipo = "Outros" })">
+                OUTROS TIPOS DE ANIMAIS
+            </a>
+            <a href="@Url.Action("About", "About")" class="active">SOBRE</a>
+        </nav>
+
+        <div class="header-right"></div>
+    </header>
+
+
+    <div id="map"></div>
+
+    <div class="container-lateral-menu">
+
+        <div class="button-menu">
+            <a href="@Url.Action("ReportLostPet", "Map")" class="b-cont">
+                <i class="fa-solid fa-flag fa-2x" style="color: #ff0000;"></i>
+                <p>PERDI MEU PET</p>
+            </a>
+
+            <a href="@Url.Action("ReportFoundPet", "Map")" class="b-cont">
+                <i class="fa-solid fa-flag fa-2x" style="color: #26ff00;"></i>
+                <p>ENCONTREI UM PET</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Script do Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeShLfVqm2Y_LnFW8MKtzcoMRBbyEZuxQ&callback=initMap" async defer></script>
+    <!-- Script do mapa -->
+    <script src="~/js/mappet.js" asp-append-version="true"></script>
+
+</body>
+</html>

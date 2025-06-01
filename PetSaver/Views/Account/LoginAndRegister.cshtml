@@ -1,0 +1,81 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Login-Cadastro";
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-Cadastro</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/loginandregister.css" asp-append-version="true">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-box login">
+            <form asp-action="Login" method="post">
+                <h1>Login</h1>
+                <div class="input-box">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <div class="forgot-link">
+                    <a href="#">Esqueceu sua senha?</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+
+        <div class="form-box register">
+            <form asp-action="Register" method="post">
+                <h1>Crie uma conta</h1>
+                <div class="input-box">
+                    <input type="text" name="username" placeholder="Nome de usuário" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="email" name="email" placeholder="E-mail" required>
+                    <i class='bx bxs-envelope'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" placeholder="Senha" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <button type="submit" class="btn">Cadastre-se</button>
+            </form>
+        </div>
+
+        <div class="toggle-box">
+            <div class="toggle-panel toggle-left">
+                <h1>
+                    Encontre seu amigo.
+                    <br>
+                    Encontre um amigo.
+                </h1>
+                <p>Não possuí uma conta?</p>
+                <button class="btn register-btn">Cadastre-se</button>
+            </div>
+            <div class="toggle-panel toggle-right">
+                <h1>
+                    Nunca foi tão fácil,
+                    <br>
+                    crie sua conta.
+                </h1>
+                <p>Já possuí uma conta?</p>
+                <button class="btn login-btn">Login</button>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+</body>
+
+</html>

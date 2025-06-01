@@ -1,0 +1,711 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Anos caninos em humanos";
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist para adoção</title>
+    <link rel="stylesheet" href="/css/dogage.css" asp-append-version="true">
+
+    <!-- Trazer os links dos icones -->
+    <script src="https://kit.fontawesome.com/7c72460651.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main>
+        <header class="header">
+            <a href="@Url.Action("Index", "Home")">
+                <img class="logo-header" src="~/img/oficial-logo2.png" alt="Logo">
+            </a>
+
+            <nav class="navbar">
+                <a href="@Url.Action("MapPet", "Map")" class="active">ENCONTRE SEU PET</a>
+                <a href="#">ADOTE</a>
+                <a href="#">CÃES E FILHOTES</a>
+                <a href="#">OUTROS TIPOS DE ANIMAIS</a>
+                <a href="#">SOBRE</a>
+            </nav>
+
+            <div class="hr-login"></div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <!-- Botão para redirecionar ao perfil -->
+                <a href="@Url.Action("Profile", "Account")" class="btn" id="accountBtn">Perfil</a>
+            }
+            else
+            {
+                <!-- Botão para usuários não logados -->
+                <a href="@Url.Action("LoginAndRegister", "Account")" class="btn" id="loginBtn">Faça Login</a>
+            }
+        </header>
+
+        <div class="container">
+            <div class="content">
+                <div class="title-content">
+                    <h1>
+                        Qual é a idade de um cachorro em anos humanos?
+                    </h1>
+                </div>
+
+                <div class="button-share">
+                    <button class="button">
+                        Compartilhar
+                        <span class="icon-share">
+                            <i class="fa-solid fa-share icon-first" style="color: #7494ec;"></i>
+                            <i class="fa-solid fa-share icon-second" style="color: #ffffff;"></i>
+                        </span>
+                    </button>
+                </div>
+
+                <div class="class-content">
+                    <p>
+                        Os anos caninos são multiplicados por sete para obter a idade humana, já que a expectativa de
+                        vida de um cão é um sétimo da de uma pessoa. A conversão de anos caninos para anos humanos
+                        depende de vários fatores, já que cães toy, pequenos, médios, grandes e gigantes amadurecem de
+                        forma diferente, razão pela qual cães de até 22,7 kg podem viver mais do que filhotes de até
+                        45,5 kg.
+                    </p>
+
+                    <div class="img-pet">
+                        <img src="/img/registros_imagem14527.jpg" alt="Cachorro Adotado">
+                    </div>
+
+
+                    <section class="class-content">
+                        <p>
+                            Especialistas concordam, no entanto, que o nível de maturidade que um cão atinge nos
+                            primeiros dois anos é semelhante ao de um humano de 15 anos, mas é aí que as semelhanças
+                            terminam. A idade de um filhote, em anos caninos, em comparação com anos humanos, depende do
+                            seguinte:
+                        </p>
+
+                        <ul class="ul-factors">
+                            <li>Raça</li>
+                            <li>Tamanho</li>
+                            <li>Peso</li>
+                            <li>Nível de atividade</li>
+                            <li>Dieta</li>
+                            <li>Estilo de vida</li>
+                            <li>Saúde</li>
+                            <li>Expectativa de vida</li>
+                        </ul>
+
+                    </section>
+
+                    <section class="class-content">
+                        <h2 class="title-section">COMPARANDO IDADES: ANOS CANINOS VS ANOS HUMANOS</h2>
+                        <p>
+                            Embora a maioria dos tutores de animais de estimação venha calculando a idade canina em anos
+                            humanos de seus filhotes há muito tempo, o método não tem base de verdade e a conversão de
+                            anos humanos em anos caninos serve principalmente para entretenimento. Para se divertir, dê
+                            uma olhada no conversor de anos caninos e estime a idade de uma raça de cachorro toy,
+                            pequeno, médio, grande e gigante em anos humanos.
+                        </p>
+
+                        <h2 class="title-table">Cães de tamanho toy: até 4,5 kg</h2>
+                        <table border="1">
+                            <tbody>
+                                <tr>
+                                    <th>Raças</th>
+                                    <th>Idade canina</th>
+                                    <th>Idade Humana</th>
+                                </tr>
+                                <tr>
+                                    <td rowspan="18">
+                                        <p><a href="#">Chihuahua</a></p>
+                                        <p><a href="#">Japanese Chin</a></p>
+                                        <p><a href="#">Maltese</a></p>
+                                        <p><a href="#">Manchester Terrier</a></p>
+                                        <p><a href="#">Papillon</a></p>
+                                        <p><a href="#">Pomeranian</a></p>
+                                        <p><a href="#">Toy Fox Terrier</a></p>
+                                        <p><a href="#">Yorkshire Terrier</a></p>
+                                    </td>
+                                    <td>0-9 meses</td>
+                                    <td>Menores que 15</td>
+                                </tr>
+                                <tr>
+                                    <td>10-11 meses</td>
+                                    <td>Menores que 15</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>15</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>23</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>28</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>31</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>35</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>38</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>42</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>45</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>49</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>52</td>
+                                </tr>
+                                <tr>
+                                    <td>11</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>12</td>
+                                    <td>59</td>
+                                </tr>
+                                <tr>
+                                    <td>13</td>
+                                    <td>63</td>
+                                </tr>
+                                <tr>
+                                    <td>14</td>
+                                    <td>66</td>
+                                </tr>
+                                <tr>
+                                    <td>15</td>
+                                    <td>70</td>
+                                </tr>
+                                <tr>
+                                    <td>16</td>
+                                    <td>74</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <small>*Fonte: Calculadora de idade para cães Pro Plan PetFinder</small>
+
+                        <h2 class="title-table">
+                            Cães de pequeno porte: até 10 kg
+                        </h2>
+                        <table border="1">
+                            <tbody>
+                                <tr>
+                                    <th>Raças</th>
+                                    <th>Idade canina</th>
+                                    <th>Idade Humana</th>
+                                </tr>
+                                <tr>
+                                    <td rowspan="22">
+                                        <p><a href="#">Affenpinscher</a></p>
+                                        <p><a href="#">Australian Terrier</a></p>
+                                        <p><a href="#">Bichon Frise</a></p>
+                                        <p><a href="#">Border Terrier</a></p>
+                                        <p><a href="#">Boston Terrier</a></p>
+                                        <p><a href="#">Brussels Griffon</a></p>
+                                        <p><a href="#">Cairn Terrier</a></p>
+                                        <p><a href="#">Cavalier King Charles Spaniel</a></p>
+                                        <p><a href="#">Chinese Crested</a></p>
+                                        <p><a href="#">Dachshund</a></p>
+                                        <p><a href="#">Dandie Dinmont Terrier</a></p>
+                                        <p><a href="#">English Toy Spaniel</a></p>
+                                        <p><a href="#">French Bulldog</a></p>
+                                        <p><a href="#">Havanese</a></p>
+                                        <p><a href="#">Italian Greyhound</a></p>
+                                        <p><a href="#">Lakeland Terrier</a></p>
+                                        <p><a href="#">Lhasa Apso</a></p>
+                                        <p><a href="#">Löwchen</a></p>
+                                        <p><a href="#">Miniature Pinscher</a></p>
+                                        <p><a href="#">Miniature Schnauzer</a></p>
+                                        <p><a href="#">Norfolk Terrier</a></p>
+                                        <p><a href="#">Norwich Terrier</a></p>
+                                        <p><a href="#">Pekingese</a></p>
+                                        <p><a href="#">Pug</a></p>
+                                        <p><a href="#">Schipperke</a></p>
+                                        <p><a href="#">Scottish Terrier</a></p>
+                                        <p><a href="#">Shih Tzu</a></p>
+                                        <p><a href="#">Silky Terrier</a></p>
+                                        <p><a href="#">Skye Terrier</a></p>
+                                        <p><a href="#">Tibetan Spaniel</a></p>
+                                        <p><a href="#">West Highland White Terrier</a></p>
+                                        <p><a href="#">Xoloitzcuintli</a></p>
+                                    </td>
+                                    <td>0-9 meses</td>
+                                    <td>Menores que 15</td>
+                                </tr>
+                                <tr>
+                                    <td>10-11 meses</td>
+                                    <td>Menores que 15</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>15</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>23</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>28</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>32</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>36</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>40</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>44</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>48</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>52</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>11</td>
+                                    <td>60</td>
+                                </tr>
+                                <tr>
+                                    <td>12</td>
+                                    <td>64</td>
+                                </tr>
+                                <tr>
+                                    <td>13</td>
+                                    <td>68</td>
+                                </tr>
+                                <tr>
+                                    <td>14</td>
+                                    <td>72</td>
+                                </tr>
+                                <tr>
+                                    <td>15</td>
+                                    <td>76</td>
+                                </tr>
+                                <tr>
+                                    <td>16</td>
+                                    <td>80</td>
+                                </tr>
+                                <tr>
+                                    <td>17</td>
+                                    <td>84</td>
+                                </tr>
+                                <tr>
+                                    <td>18</td>
+                                    <td>88</td>
+                                </tr>
+                                <tr>
+                                    <td>19</td>
+                                    <td>92</td>
+                                </tr>
+                                <tr>
+                                    <td>20</td>
+                                    <td>96</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <small>*Fonte: Calculadora de idade para cães Pro Plan PetFinder</small>
+
+                        <h2 class="title-table">
+                            Cães de médio porte: até 22,6 kg
+                        </h2>
+                        <table border="1">
+                            <tbody>
+                                <tr>
+                                    <th>Raças</th>
+                                    <th>Idade canina</th>
+                                    <th>Idade Humana</th>
+                                </tr>
+                                <tr>
+                                    <td rowspan="18">
+                                        <p><a href="#">Airedale Terrier</a></p>
+                                        <p><a href="#">American Eskimo Dog</a></p>
+                                        <p><a href="#">American Foxhound</a></p>
+                                        <p><a href="#">American Water Spaniel</a></p>
+                                        <p><a href="#">Australian Cattle Dog</a></p>
+                                        <p><a href="#">Basenji</a></p>
+                                        <p><a href="#">Beagle</a></p>
+                                        <p><a href="#">Bearded Collie</a></p>
+                                        <p><a href="#">Bedlington Terrier</a></p>
+                                        <p><a href="#">Border Collie</a></p>
+                                        <p><a href="#">Brittany</a></p>
+                                        <p><a href="#">Bull Terrier</a></p>
+                                        <p><a href="#">Bulldog</a></p>
+                                        <p><a href="#">Canaan Dog</a></p>
+                                        <p><a href="#">Cardigan Welsh Corgi</a></p>
+                                        <p><a href="#">Chinese Shar-Pei</a></p>
+                                        <p><a href="#">Dachshund</a></p>
+                                        <p><a href="#">English Cocker Spaniel</a></p>
+                                        <p><a href="#">English Springer Spaniel</a></p>
+                                        <p><a href="#">Field Spaniel</a></p>
+                                        <p><a href="#">Finnish Spitz</a></p>
+                                        <p><a href="#">Irish Terrier</a></p>
+                                        <p><a href="#">Keeshond</a></p>
+                                        <p><a href="#">Kerry Blue Terrier</a></p>
+                                        <p><a href="#">Manchester Terrier</a></p>
+                                        <p><a href="#">Miniature Bull Terrier</a></p>
+                                        <p><a href="#">Pembroke Welsh Corgi</a></p>
+                                        <p><a href="#">Petit Basset Griffon Vendeen</a></p>
+                                        <p><a href="#">Puli</a></p>
+                                        <p><a href="#">Shetland Sheepdog</a></p>
+                                        <p><a href="#">Shiba Inu</a></p>
+                                        <p><a href="#">Soft Coated Wheaten Terrier</a></p>
+                                        <p><a href="#">Staffordshire Bull Terrier</a></p>
+                                        <p><a href="#">Standard Schnauzer</a></p>
+                                        <p><a href="#">Sussex Spaniel</a></p>
+                                        <p><a href="#">Tibetan Terrier</a></p>
+                                        <p><a href="#">Welsh Terrier</a></p>
+                                        <p><a href="#">Whippet</a></p>
+                                        <p><a href="#">Wire Fox Terrier</a></p>
+                                    </td>
+                                    <td>0-9 meses</td>
+                                    <td>Menores que 15</td>
+                                </tr>
+                                <tr>
+                                    <td>10-11 meses</td>
+                                    <td>Menores que 15</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>15</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>24</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>29</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>34</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>38</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>42</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>47</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>51</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>60</td>
+                                </tr>
+                                <tr>
+                                    <td>11</td>
+                                    <td>65</td>
+                                </tr>
+                                <tr>
+                                    <td>12</td>
+                                    <td>69</td>
+                                </tr>
+                                <tr>
+                                    <td>13</td>
+                                    <td>74</td>
+                                </tr>
+                                <tr>
+                                    <td>14</td>
+                                    <td>78</td>
+                                </tr>
+                                <tr>
+                                    <td>15</td>
+                                    <td>83</td>
+                                </tr>
+                                <tr>
+                                    <td>16</td>
+                                    <td>87</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <small>*Fonte: Calculadora de idade para cães Pro Plan PetFinder</small>
+
+                        <h2 class="title-table">Cães de grande porte: mais de 22,6 kg</h2>
+                        <table border="1">
+                            <tbody>
+                                <tr>
+                                    <th>Raças</th>
+                                    <th>Idade canina</th>
+                                    <th>Idade Humana</th>
+                                </tr>
+                                <tr>
+                                    <td rowspan="19">
+                                        <p><a href="#">Afghan Hound</a></p>
+                                        <p><a href="#">Airedale Terrier</a></p>
+                                        <p><a href="#">Akita</a></p>
+                                        <p><a href="#">Alaskan Malamute</a></p>
+                                        <p><a href="#">American Staffordshire Terrier</a></p>
+                                        <p><a href="#">Australian Shepherd</a></p>
+                                        <p><a href="#">Basset Hound</a></p>
+                                        <p><a href="#">Bearded Collie</a></p>
+                                        <p><a href="#">Belgian Malinois</a></p>
+                                        <p><a href="#">Belgian Shepherd Laekenois</a></p>
+                                        <p><a href="#">Belgian Tervuren</a></p>
+                                        <p><a href="#">Bernese Mountain Dog</a></p>
+                                        <p><a href="#">Black and Tan Coonhound</a></p>
+                                        <p><a href="#">Bloodhound</a></p>
+                                        <p><a href="#">Borzoi</a></p>
+                                        <p><a href="#">Bouvier des Flandres</a></p>
+                                        <p><a href="#">Boxer</a></p>
+                                        <p><a href="#">Briard</a></p>
+                                        <p><a href="#">Bullmastiff</a></p>
+                                        <p><a href="#">Chesapeake Bay Retriever</a></p>
+                                        <p><a href="#">Chow Chow</a></p>
+                                        <p><a href="#">Clumber Spaniel</a></p>
+                                        <p><a href="#">Collie (Rough)</a></p>
+                                        <p><a href="#">Curly-Coated Retriever</a></p>
+                                        <p><a href="#">Dalmatian</a></p>
+                                        <p><a href="#">English Foxhound</a></p>
+                                        <p><a href="#">English Setter</a></p>
+                                        <p><a href="#">Flat-Coated Retriever</a></p>
+                                        <p><a href="#">German Shepherd Dog</a></p>
+                                        <p><a href="#">German Shorthaired Pointer</a></p>
+                                        <p><a href="#">German Wirehaired Pointer</a></p>
+                                        <p><a href="#">Golden Retriever</a></p>
+                                        <p><a href="#">Gordon Setter</a></p>
+                                        <p><a href="#">Greyhound</a></p>
+                                        <p><a href="#">Harrier</a></p>
+                                        <p><a href="#">Ibizan Hound</a></p>
+                                        <p><a href="#">Irish Setter</a></p>
+                                        <p><a href="#">Irish Water Spaniel</a></p>
+                                        <p><a href="#">Komondor</a></p>
+                                        <p><a href="#">Labrador Retriever</a></p>
+                                        <p><a href="#">Norwegian Elkhound</a></p>
+                                        <p><a href="#">Old English Sheepdog</a></p>
+                                        <p><a href="#">Otterhound</a></p>
+                                        <p><a href="#">Pharaoh Hound</a></p>
+                                        <p><a href="#">Pointer</a></p>
+                                        <p><a href="#">Poodle</a></p>
+                                        <p><a href="#">Portuguese Water Dog</a></p>
+                                        <p><a href="#">Rhodesian Ridgeback</a></p>
+                                        <p><a href="#">Saluki</a></p>
+                                        <p><a href="#">Samoyed</a></p>
+                                        <p><a href="#">Siberian Husky</a></p>
+                                        <p><a href="#">Spinone Italiano</a></p>
+                                        <p><a href="#">Vizsla</a></p>
+                                        <p><a href="#">Weimaraner</a></p>
+                                        <p><a href="#">Wirehaired Pointing Griffon</a></p>
+                                    </td>
+                                    <td>0-9 meses</td>
+                                    <td>Menores que 15</td>
+                                </tr>
+                                <tr>
+                                    <td>10-11 meses</td>
+                                    <td>Menores que 15</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>15</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>23</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>28</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>31</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>35</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>38</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>42</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>45</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>49</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>52</td>
+                                </tr>
+                                <tr>
+                                    <td>11</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>12</td>
+                                    <td>59</td>
+                                </tr>
+                                <tr>
+                                    <td>13</td>
+                                    <td>63</td>
+                                </tr>
+                                <tr>
+                                    <td>14</td>
+                                    <td>66</td>
+                                </tr>
+                                <tr>
+                                    <td>15</td>
+                                    <td>70</td>
+                                </tr>
+                                <tr>
+                                    <td>16</td>
+                                    <td>74</td>
+                                </tr>
+                                <tr>
+                                    <td>17</td>
+                                    <td>78</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <small>*Fonte: Calculadora de idade para cães Pro Plan PetFinder</small>
+
+                        <h2 class="title-table">
+                            Cães de porte gigante: mais de 45 kg
+                        </h2>
+                        <table border="1">
+                            <tbody>
+                                <tr>
+                                    <td><strong>Raças</strong></td>
+                                    <td><strong>Idade canina</strong></td>
+                                    <td><strong>Idade humana</strong></td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="15">
+                                        <p><a href="#">Anatolian Shepherd Dog</a></p>
+                                        <p><a href="#">Bullmastiff</a></p>
+                                        <p><a href="#">Giant Schnauzer</a></p>
+                                        <p><a href="#">Great Dane</a></p>
+                                        <p><a href="#">Great Pyrenees</a></p>
+                                        <p><a href="#">Greater Swiss Mountain Dog</a></p>
+                                        <p><a href="#">Irish Wolfhound</a></p>
+                                        <p><a href="#">Kurvasz</a></p>
+                                        <p><a href="#">Mastiff</a></p>
+                                        <p><a href="#">Newfoundland</a></p>
+                                        <p><a href="#">Rottweiler</a></p>
+                                        <p><a href="#">Saint Bernard</a></p>
+                                        <p><a href="#">Scottish Deerhound</a></p>
+                                        <p>&nbsp;</p>
+                                    </td>
+                                    <td>0-9 meses</td>
+                                    <td>Menores que 15</td>
+                                </tr>
+                                <tr>
+                                    <td>10-11 meses</td>
+                                    <td>Menores que 15</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>15</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>23</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>28</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>31</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>35</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>38</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>42</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>45</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>49</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>52</td>
+                                </tr>
+                                <tr>
+                                    <td>11</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>12</td>
+                                    <td>59</td>
+                                </tr>
+                                <tr>
+                                    <td>13</td>
+                                    <td>63</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <small>*Fonte: Calculadora de idade para cães Pro Plan PetFinder</small>
+
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+</body>
+
+</html>

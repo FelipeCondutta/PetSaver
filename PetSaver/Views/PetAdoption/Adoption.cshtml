@@ -1,0 +1,111 @@
+﻿@model IEnumerable<PetSaver.Models.Pets>
+
+@{
+    ViewData["Title"] = "Tela de adoção";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela Adocao</title>
+    <link rel="stylesheet" href="~/css/reset.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/adoption.css" asp-append-version="true">
+    <script defer src="script.js"></script>
+    <script src="https://kit.fontawesome.com/7c72460651.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+        <!-- Cabeçalho -->
+        <header class="header">
+            <div class="header-content">
+                <!-- Adicionando a logo -->
+                <a href="@Url.Action("Index", "Home")">
+                    <img class="logo-header" src="~/img/oficial-logo2.png" alt="Logo BuscaPet">
+                </a>
+                <h1>Adote um Pet</h1>
+                <p>Encontre o companheiro perfeito para você!</p>
+            </div>
+        </header>
+
+
+        <!-- Barra de busca -->
+        <div class="animalSearchHeader">
+            <form method="get" asp-action="Adoption" asp-controller="PetAdoption" class="filterSearch">
+                <div class="dropdownSearchPet">
+                    <label for="idade">Idade:</label>
+                    <select id="idade" name="idade">
+                        <option value="">Todas</option>
+                        <option value="1">Até 1 ano</option>
+                        <option value="2">Até 2 anos</option>
+                        <option value="3">Até 3 anos</option>
+                        <option value="4">Mais de 3 anos</option>
+                    </select>
+                </div>
+                <div class="dropdownSearchPet">
+                    <label for="raca">Raça:</label>
+                    <input type="text" id="raca" name="raca" placeholder="Digite a raça">
+                </div>
+                <div class="dropdownSearchPet">
+                    <label for="distancia">Distância (km):</label>
+                    <input type="number" id="distancia" name="distancia" placeholder="Máximo">
+                </div>
+                <div class="dropdownSearchPet">
+                    <label for="tipo">Tipo:</label>
+                    <select id="tipo" name="tipo">
+                        <option value="">Todos</option>
+                        <option value="Cachorro">Cachorro</option>
+                        <option value="Gato">Gato</option>
+                        <option value="Gato">Outros</option>
+                    </select>
+                </div>
+                <div class="dropdownSearchPet">
+                    <label for="sexo">Sexo:</label>
+                    <select id="sexo" name="sexo">
+                        <option value="">Ambos</option>
+                        <option value="Macho">Macho</option>
+                        <option value="Fêmea">Fêmea</option>
+                    </select>
+                </div>
+                <button type="submit" class="buttonFilter">Filtrar</button>
+            </form>
+        </div>
+
+        <!-- Conteúdo principal -->
+        <div class="container">
+            <section class="cardsPets">
+                @foreach (var pet in Model)
+                {
+                    <div class="cardPet">
+                        <div class="card-image">
+                            <img src="@Url.Content(pet.ImagemUrl.StartsWith("/") ? pet.ImagemUrl : $"/{pet.ImagemUrl}")" alt="Foto do Pet">
+                        </div>
+                        <div class="card-content">
+                            <h3>@pet.Nome</h3>
+                            <div class="infosPet">
+                                <p><strong>Tipo:</strong> @pet.Tipo</p>
+                                <p><strong>Sexo:</strong> @pet.Sexo</p>
+                                <p><strong>Idade:</strong> @pet.Idade anos</p>
+                                <p><strong>Raça:</strong> @pet.Raca</p>
+                                <p><strong>Distância:</strong> @pet.DistanciaKm km</p>
+                            </div>
+                            <form asp-action="AdoptionForm" asp-controller="PetAdoption" method="get">
+                                <input type="hidden" name="id" value="@pet.Id" />
+                                <button type="submit" class="adopt-button">Adotar</button>
+                            </form>
+
+                        </div>
+                    </div>                
+                }
+            </section>
+        </div>
+
+        <!-- Rodapé -->
+        <footer class="footer">
+            <p>&copy; 2025 BuscaPet. Todos os direitos reservados.</p>
+        </footer>
+    </main>
+</body>
+</html>

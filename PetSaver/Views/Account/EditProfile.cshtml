@@ -1,0 +1,36 @@
+﻿@model PetSaver.Models.ViewModel.EditProfileViewModel
+@{
+    Layout = null;
+    ViewData["Title"] = "Editar Perfil";
+}
+<link rel="stylesheet" href="/css/loginandregister.css" asp-append-version="true">
+
+<div class="container" style="height: 450px;">
+    <div class="form-box login" style="width:100%;position:relative;right:0;">
+        <form asp-action="EditProfile" method="post">
+            <h1>Editar Perfil</h1>
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <div class="input-box">
+                <input type="text" name="Name" value="@Model.Name" placeholder="Nome" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="email" name="Email" value="@Model.Email" placeholder="E-mail" required>
+                <i class='bx bxs-envelope'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" name="CurrentPassword" placeholder="Senha atual" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <span style="color:#2563eb;font-size:13px;display:block;margin-bottom:10px;">
+                Para alterar seu nome ou e-mail, digite sua senha atual.
+            </span>
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <div class="alert-danger" style="margin-bottom:10px;">@ViewBag.ErrorMessage</div>
+            }
+            <button type="submit" class="btn">Salvar</button>
+            <a href="@Url.Action("Profile", "Account")" class="btn" style="margin-top:10px;background:#ccc;color:#333;">Cancelar</a>
+        </form>
+    </div>
+</div>
