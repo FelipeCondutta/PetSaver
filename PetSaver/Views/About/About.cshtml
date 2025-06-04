@@ -27,9 +27,11 @@
 
             <nav class="navbar">
                 <a href="@Url.Action("MapPet", "Map")" class="active">ENCONTRE SEU PET</a>
-                <a href="#">ADOTE</a>
-                <a href="#">CÃES E FILHOTES</a>
-                <a href="#">OUTROS TIPOS DE ANIMAIS</a>
+                <a href="@Url.Action("Adoption", "PetAdoption")" class="active">ADOTE</a>
+                <a href="@Url.Action("Adoption", "PetAdoption", new { tipo = "Cachorro", idade = 3 })">CÃES E FILHOTES</a>
+                <a href="@Url.Action("Adoption", "PetAdoption", new { tipo = "Outros" })">
+                    OUTROS TIPOS DE ANIMAIS
+                </a>
                 <a href="@Url.Action("About", "About")" class="active">SOBRE</a>
             </nav>
 
